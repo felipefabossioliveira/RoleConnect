@@ -38,6 +38,16 @@ struct EventList: View {
                                 .scaledToFit()
                                 .cornerRadius(20)
                                 .shadow(color: .gray.opacity(0.7), radius: 10, y: 10)
+                                .overlay(alignment: .topTrailing) {
+                                    Circle()
+                                        .foregroundStyle(.white)
+                                        .frame(height: 44)
+                                        .overlay {
+                                            Image(systemName: "heart.fill")
+                                                .foregroundStyle(.pink)
+                                        }
+                                        .padding()
+                                }
                             
                             Text("Mamma Jamma, Restaurant")
                                 .font(.subheadline)
