@@ -11,6 +11,8 @@ struct Home: View {
     var body: some View {
         VStack {
             Header()
+
+            EventList()
             
             Spacer()
         }
