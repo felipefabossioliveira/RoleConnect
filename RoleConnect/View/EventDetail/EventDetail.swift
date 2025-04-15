@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct EventDetail: View {
+    
+    let config = SlideToJoin.Config(
+        idleText: "Swipe to Join",
+        onSwipeText: "Confirms Joinment",
+        confirmationText: "Joined!",
+        tint: .green,
+        foregroundColor: .white
+    )
+    
     var body: some View {
         ZStack {
             
@@ -60,7 +69,7 @@ struct EventDetail: View {
     
         VStack(alignment: .leading) {
             
-            let config = SlideToJoin.Config(idleText: "Swipe to Join", onSwipeText: "Confirms Joinment", confirmationText: "Joined!", tint: .green, foregroundColor: .white )
+       
             
             Text("Mamma Jamma, Pizzaria")
                 .font(.title3)
@@ -124,7 +133,7 @@ struct EventDetail: View {
                 
                 Text("About Event")
                     .font(.title3)
-                    .fontWeight(.bold)
+                    .fontWeight(.semibold)
                 
                 Text("After many years, we're finally coming back to South East Asia! Your love and support for our band since day 1 has never gone unnoticed and we can't wait to see all of your beautiful faces again.")
                     .font(.subheadline)
@@ -134,16 +143,22 @@ struct EventDetail: View {
             }
             .padding(.top, 25)
             
-            SlideToJoin(config: config) {
+            HStack {
+                Spacer()
+            
+                SlideToJoin(config: config) {}
                 
+                Spacer()
             }
+            .padding(.top, 30)
+            .padding(.horizontal, 6)
             
             Spacer()
         }
         .padding(.top, 30)
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
-        .frame(height: UIScreen.main.bounds.height * 0.55)
+        .frame(height: UIScreen.main.bounds.height * 0.58)
         .background(.white)
         .cornerRadius(30)
     }
