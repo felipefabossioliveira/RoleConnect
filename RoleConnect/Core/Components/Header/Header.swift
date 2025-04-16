@@ -28,7 +28,7 @@ struct Header: View {
                     Text("Role")
                     
                     Circle()
-                        .fill(.darkBlue)
+                        .fill(.darkPurple)
                         .frame(height: 12)
                     
                     Text("Connect")
@@ -42,7 +42,7 @@ struct Header: View {
                         .frame(width: 50, height: 50)
                         .foregroundStyle(.gray.opacity(0.2))
                         .overlay {
-                            Image("profile")
+                            Image("profile2")
                                 .resizable()
                                 .scaledToFill()
                                 .clipShape(.circle)

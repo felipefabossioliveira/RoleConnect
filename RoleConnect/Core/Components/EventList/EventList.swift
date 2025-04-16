@@ -20,7 +20,7 @@ struct EventList: View {
                             
                             VStack(alignment: .leading) {
                                 
-                                Image("party1")
+                                Image("party3")
                                     .resizable()
                                     .scaledToFit()
                                     .cornerRadius(20)
@@ -65,7 +65,7 @@ struct EventList: View {
                                     
                                 }
                                 
-                                Participants(height: 35, circleHeight: 40)
+                                Participants(height: 30, circleHeight: 35)
                                     .padding(.top, 10)
                                 
                             }
@@ -126,7 +126,7 @@ struct EventList: View {
                                     
                                 }
                                 
-                                Participants(height: 35, circleHeight: 40)
+                                Participants(height: 30, circleHeight: 35)
                                     .padding(.top, 10)
                                 
                             }

@@ -150,7 +150,7 @@ struct SlideToJoin: View {
                 .opacity(!isComplete ? 0 : 1)
                 .blur(radius: !isComplete ? 10 : 0)
         }
-        .fontWeight(.semibold)
+        .fontWeight(.bold)
         .foregroundStyle(config.foregroundColor)
         .frame(maxWidth: .infinity)
         // To make it center

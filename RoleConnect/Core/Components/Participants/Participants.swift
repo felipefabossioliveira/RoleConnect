@@ -66,7 +66,7 @@ struct Participants: View {
                     .frame(height: circleHeight)
                     .overlay {
                         Circle()
-                            .foregroundStyle(.dark)
+                            .foregroundStyle(.darkPurple)
                             .frame(height: height)
                             .overlay {
                                 Text("+8k")
@@ -83,7 +83,7 @@ struct Participants: View {
                 
                 HStack {
                     Text("Join")
-                        .foregroundStyle(.darkBlue)
+                        .foregroundStyle(.darkPurple)
                         .fontWeight(.bold)
                     
                     Image(systemName: "chevron.right")
@@ -91,6 +91,7 @@ struct Participants: View {
                         .scaledToFit()
                         .frame(height: 12)
                         .fontWeight(.bold)
+                        .foregroundStyle(.darkPurple)
                 }
             }
         }

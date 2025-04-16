@@ -12,7 +12,7 @@ struct EventDetail: View {
     let config = SlideToJoin.Config(
         idleText: "Swipe to Join",
         onSwipeText: "Almost there 🔥",
-        confirmationText: "Have Fun 😊",
+        confirmationText: "Have Fun! 😊",
         tint: .green,
         foregroundColor: .white
     )
@@ -119,12 +119,28 @@ struct EventDetail: View {
                         
                         Spacer()
                         
-                        Image("maps")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 40)
-                            .offset(x: -5, y: -10)
-                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.clear)
+                            .frame(width: 70, height: 70)
+                            .background {
+                                Image("map")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .scaleEffect(2)
+                                    .frame(maxWidth: 70)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .colorInvert()
+                            }
+                            .overlay(alignment: .center) {
+                                Image("maps")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 30)
+                                    .offset(x: 2)
+                            }
+                            .shadow(color: .gray.opacity(0.3), radius: 10, y: 0)
+
+
                     }
                     .padding(.horizontal)
                 }

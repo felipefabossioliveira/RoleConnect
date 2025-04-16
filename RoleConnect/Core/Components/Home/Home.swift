@@ -16,10 +16,10 @@ struct Home: View {
             
             Header()
             
+            SearchBar(searchText: $homeVM.searchText)
+
             ScrollView {
-                
-                SearchBar(searchText: $homeVM.searchText)
-                
+                                
                 HStack {
                     Text("Upcoming Event")
                         .fontWeight(.bold)
@@ -27,13 +27,12 @@ struct Home: View {
                     
                     Spacer()
                     
-                    Text("View All")
-                        .foregroundStyle(.dark)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.mediumGray)
+                    Text("See more")
+                        .foregroundStyle(.darkPurple)
                     
                 }
                 .padding(.horizontal)
+                .padding(.top, 10)
                 
                 EventList()
                     .padding(.leading)
@@ -57,15 +56,12 @@ struct Home: View {
                 Spacer()
                 
                 Text("See more")
-                    .foregroundStyle(.dark)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.mediumGray)
+                    .foregroundStyle(.darkPurple)
                 
             }
             
-            Image("party1")
+            Image("party2")
                 .resizable()
-            //                .scaledToFill()
                 .frame(height: 210)
                 .cornerRadius(20)
                 .shadow(color: .gray.opacity(0.7), radius: 10, y: 10)
@@ -82,7 +78,7 @@ struct Home: View {
                                 .frame(height: 44)
                                 .overlay {
                                     Image(systemName: "heart")
-                                        .foregroundStyle(.dark)
+                                        .foregroundStyle(.gray)
                                 }
                         }
                         .padding()
@@ -104,7 +100,7 @@ struct Home: View {
                                         
                                         Text("$60")
                                             .fontWeight(.bold)
-                                            .foregroundStyle(.dark)
+                                            .foregroundStyle(.darkPurple)
 
                                     }
                                     

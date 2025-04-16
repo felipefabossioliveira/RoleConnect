@@ -13,24 +13,21 @@ struct SearchBar: View {
     
     var body: some View {
         HStack {
-            Image("loupe")
+            Image(systemName: "magnifyingglass")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 25)
-                .rotationEffect(.degrees(270))
                 .padding(.trailing, 10)
-                .foregroundStyle(
-                    searchText.isEmpty ? Color.secondary : Color.accentColor
-                )
             
             TextField("Search events, restaurants..", text: $searchText)
                 .keyboardType(.asciiCapable)
+                .tint(.gray)
                 .autocorrectionDisabled(true)
                 .foregroundStyle(.gray.opacity(0.7))
                 .overlay(alignment: .trailing) {
                     Image(systemName: "xmark.circle.fill")
                         .padding()
-                        .foregroundStyle(Color.accentColor)
+                        .foregroundStyle(.dark)
                         .offset(x: 10)
                         .opacity(searchText.isEmpty ? 0 : 1)
                         .onTapGesture {
