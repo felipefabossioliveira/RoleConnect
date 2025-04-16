@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct Profile: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
         GeometryReader { geo in
-            VStack(spacing: 20) {
+            VStack(spacing: 30) {
+                
                 headerView
                 
-                myDetailsView
-                    .frame(width: geo.size.width / 1.05)
-                
-                preferencesView
-                    .frame(width: geo.size.width / 1.05)
+                VStack(spacing: 30) {
+                    myDetailsView
+                        .frame(width: geo.size.width / 1.05)
+                    
+                    preferencesView
+                        .frame(width: geo.size.width / 1.05)
+                }
             }
+            .navigationBarBackButtonHidden()
+
         }
     }
     
@@ -28,14 +36,16 @@ struct Profile: View {
             VStack (spacing: 20) {
                 HStack {
                     Circle()
-                        .fill(Color("darkGray"))
-                        .frame(width: 50, height: 50)
+                        .foregroundStyle(.dark)
+                        .frame(height: 44)
                         .overlay {
-                            Image(systemName: "person.circle")
-                                .resizable()
-                                .scaledToFit()
+                            Image(systemName: "chevron.left")
                                 .foregroundStyle(.white)
-                                .frame(width: 20, height: 20)
+                        }
+                        .onTapGesture {
+                            withAnimation(.easeOut) {
+                                coordinator.pop()
+                            }
                         }
                     
                     Spacer()
@@ -43,74 +53,65 @@ struct Profile: View {
                     Text("My Profile")
                         .fontWeight(.semibold)
                     
-                    Spacer()
-                    
-                    Circle()
-                        .fill(Color("darkGray"))
-                        .frame(width: 50, height: 50)
-                        .overlay {
-                            Image(systemName: "square.and.pencil")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(.white)
-                                .frame(width: 18, height: 18)
-                                .fontWeight(.bold)
-                                .offset(x: 1)
-                        }
-                    
                 }
+                .padding(.horizontal)
                 
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color("darkGray"))
-                    .frame(height: 90)
-                    .overlay {
-                        HStack {
-                            Circle()
-                                .frame(width: 50, height: 50)
-                                .overlay {
-                                    Image("profile")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .clipShape(Circle())
-                                        .frame(width: 45, height: 45)
-                                }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Felipe Fabossi")
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                                
-                                Text(verbatim: "ffabossi@ciandt.com")
-                                    .foregroundStyle(.white.opacity(0.7))
-                                    .font(.subheadline)
-                                
-                            }
-                            
-                            Spacer()
-                            
-                            Image(systemName: "rectangle.portrait.and.arrow.forward")
-                                .rotationEffect(Angle(degrees: 180))
-                                .fontWeight(.bold)
-                            
-                        }
-                        .padding(.horizontal)
-                    }
-                
-                Spacer()
+                userInformations
+           
             }
             .padding(.top, 60)
             .padding(.horizontal)
             
         }
         .ignoresSafeArea(edges: .all)
-        .frame(height: 200)
-        .background(Color("dark"))
+        .frame(height: 160)
+        .background(Color.gray.opacity(0.05))
+    }
+    
+    @ViewBuilder
+    private var userInformations: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .fill(Color("darkGray"))
+            .frame(height: 90)
+            .overlay {
+                HStack {
+                    Circle()
+                        .frame(width: 50, height: 50)
+                        .overlay {
+                            Image("profile")
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .frame(width: 45, height: 45)
+                        }
+                    
+                    VStack(alignment: .leading) {
+                        Text("Felipe Fabossi")
+                            .font(.headline)
+                            .foregroundStyle(.dark)
+                        
+                        Text(verbatim: "ffabossi@ciandt.com")
+                            .foregroundStyle(.dark.opacity(0.7))
+                            .font(.subheadline)
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "rectangle.portrait.and.arrow.forward")
+                        .rotationEffect(Angle(degrees: 180))
+                        .fontWeight(.bold)
+                    
+                }
+                .padding(.horizontal)
+            }
     }
     
     @ViewBuilder
     private var myDetailsView: some View {
         RoundedRectangle(cornerRadius: 20)
-            .fill(Color("dark"))
+            .fill(.clear)
+            .stroke(.gray.opacity(0.5))
             .frame(height: 270)
             .overlay {
                 VStack (alignment: .leading) {
@@ -132,10 +133,10 @@ struct Profile: View {
                             .fill(Color("darkGray"))
                             .frame(width: 50, height: 50)
                             .overlay {
-                                Image(systemName: "ticket")
+                                Image(systemName: "ticket.fill")
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.black)
                                     .frame(width: 20, height: 20)
                             }
                             .padding(.horizontal)
@@ -162,7 +163,7 @@ struct Profile: View {
                                 Image(systemName: "info.circle")
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.darkPurple)
                                     .frame(width: 20, height: 20)
                             }
                             .padding(.horizontal)
@@ -189,7 +190,7 @@ struct Profile: View {
                                 Image(systemName: "person.3.fill")
                                     .resizable()
                                     .scaledToFit()
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.dark)
                                     .frame(width: 23, height: 20)
                             }
                             .padding(.horizontal)
@@ -215,7 +216,8 @@ struct Profile: View {
     @ViewBuilder
     private var preferencesView: some View {
         RoundedRectangle(cornerRadius: 20)
-            .fill(Color("dark"))
+            .fill(.clear)
+            .stroke(.gray.opacity(0.5))
             .frame(height: 220)
             .overlay {
                 VStack (alignment: .leading) {
@@ -268,6 +270,7 @@ struct Profile: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 20, height: 20)
+                                    .colorInvert()
                             }
                             .padding(.horizontal)
                         
@@ -294,9 +297,6 @@ struct Profile: View {
     }
 }
 
-struct Profile_Previews: PreviewProvider {
-    static var previews: some View {
-        Profile()
-            .preferredColorScheme(.dark)
-    }
+#Preview {
+    Profile()
 }

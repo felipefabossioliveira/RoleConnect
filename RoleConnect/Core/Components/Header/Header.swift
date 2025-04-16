@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Header: View {
+
+    @EnvironmentObject private var coordinator: AppCoordinator
+
     var body: some View {
         VStack {
             HStack {
@@ -47,6 +50,9 @@ struct Header: View {
                                 .scaledToFill()
                                 .clipShape(.circle)
                         }
+                }
+                .onTapGesture {
+                    coordinator.push(.profile)
                 }
             }
         }

@@ -123,7 +123,7 @@ struct SlideToJoin: View {
                     }
                     .blendMode(.softLight)
             }
-            .font(.system(size: 18))
+            .font(.system(size: 20))
             .fontWeight(.semibold)
             .frame(maxWidth: .infinity)
             .padding(.trailing, size.height / 2)
@@ -173,5 +173,5 @@ struct SlideToJoin: View {
 }
 
 #Preview {
-    EventDetail()
+    UpcomingEventDetail()
 }

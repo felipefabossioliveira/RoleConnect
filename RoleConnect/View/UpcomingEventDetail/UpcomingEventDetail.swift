@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct EventDetail: View {
+struct UpcomingEventDetail: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     
     let config = SlideToJoin.Config(
         idleText: "Swipe to Join",
@@ -30,6 +33,7 @@ struct EventDetail: View {
                 
             }
         }
+        .navigationBarBackButtonHidden()
         .ignoresSafeArea()
     }
     
@@ -46,6 +50,11 @@ struct EventDetail: View {
                         .frame(height: 44)
                         .overlay {
                             Image(systemName: "chevron.left")
+                        }
+                        .onTapGesture {
+                            withAnimation(.easeOut) {
+                                coordinator.pop()
+                            }
                         }
                     
                     Spacer()
@@ -66,10 +75,8 @@ struct EventDetail: View {
     
     @ViewBuilder
     private var EventInformations: some View {
-    
+        
         VStack(alignment: .leading) {
-            
-       
             
             Text("Mamma Jamma, Pizzaria")
                 .font(.title3)
@@ -139,8 +146,8 @@ struct EventDetail: View {
                                     .offset(x: 2)
                             }
                             .shadow(color: .gray.opacity(0.3), radius: 10, y: 0)
-
-
+                        
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -161,7 +168,7 @@ struct EventDetail: View {
             
             HStack {
                 Spacer()
-            
+                
                 SlideToJoin(config: config) {}
                 
                 Spacer()
@@ -182,5 +189,7 @@ struct EventDetail: View {
 
 
 #Preview {
-    EventDetail()
+    UpcomingEventDetail()
+        .environmentObject(AppCoordinator())
+    
 }

@@ -1,0 +1,102 @@
+//
+//  EventList.swift
+//  RoleConnect
+//
+//  Created by Felipe Fabossi on 14/04/25.
+//
+
+import SwiftUI
+
+struct UpcomingEventList: View {
+    
+    @StateObject private var eventListVM = UpcomingEventViewModel()
+    
+    var body: some View {
+        VStack(spacing: 25) {
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 25) {
+                    ForEach(eventListVM.upcomingEventList) { item in
+                        EventListItem(item: item)
+                    }
+                }
+            }
+            .frame(height: 290)
+        }
+        .onAppear {
+            eventListVM.fetchUpcomingEvents()
+        }
+    }
+}
+
+struct EventListItem: View {
+    
+    let item: UpcomingEventModel
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .fill(.white)
+            .stroke(.gray.opacity(0.2), lineWidth: 2)
+            .overlay {
+                
+                VStack(alignment: .leading) {
+                    
+                    Image(item.image)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(20)
+                        .shadow(color: .gray.opacity(0.7), radius: 10, y: 10)
+                        .overlay(alignment: .topTrailing) {
+                            Circle()
+                                .foregroundStyle(.white)
+                                .frame(height: 44)
+                                .overlay {
+                                    Image(systemName: "heart.fill")
+                                        .foregroundStyle(.pink)
+                                }
+                                .padding()
+                        }
+                    
+                    Text(item.name)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .padding(.top, 10)
+                    
+                    HStack(spacing: 10) {
+                        Image("calendar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 20)
+                        
+                        
+                        Text(item.date)
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.gray.opacity(0.7))
+                        
+                        Image("clock")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 20)
+                        
+                        Text(item.time)
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.gray.opacity(0.7))
+                        
+                    }
+                    
+                    Participants(height: 30, circleHeight: 35)
+                        .padding(.top, 10)
+                    
+                }
+                .padding(.horizontal)
+                
+            }
+            .frame(width: 250)
+    }
+}
+
+#Preview {
+    UpcomingEventList()
+}

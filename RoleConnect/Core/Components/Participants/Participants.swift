@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Participants: View {
     
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     @State var showJoin = true
     @State var spacing: CGFloat = -16
     @State var height: CGFloat = 40
@@ -93,6 +95,11 @@ struct Participants: View {
                         .fontWeight(.bold)
                         .foregroundStyle(.darkPurple)
                 }
+                .onTapGesture {
+                    print("Toque detectado")
+                    coordinator.push(.detail)
+                    print("Push chamado, path agora é: \(coordinator.navigationPath)")
+                }
             }
         }
     }
@@ -100,4 +107,5 @@ struct Participants: View {
 
 #Preview {
     Participants()
+        .environmentObject(AppCoordinator())
 }

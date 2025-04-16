@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct Home: View {
+    
     @StateObject private var homeVM = HomeViewModel()
+    @StateObject private var eventListVM = UpcomingEventViewModel()
+    
     
     var body: some View {
         
@@ -17,9 +20,9 @@ struct Home: View {
             Header()
             
             SearchBar(searchText: $homeVM.searchText)
-
+            
             ScrollView {
-                                
+                
                 HStack {
                     Text("Upcoming Event")
                         .fontWeight(.bold)
@@ -34,7 +37,7 @@ struct Home: View {
                 .padding(.horizontal)
                 .padding(.top, 10)
                 
-                EventList()
+                UpcomingEventList()
                     .padding(.leading)
                 
                 PopularEvent
@@ -101,7 +104,7 @@ struct Home: View {
                                         Text("$60")
                                             .fontWeight(.bold)
                                             .foregroundStyle(.darkPurple)
-
+                                        
                                     }
                                     
                                     HStack {
@@ -118,7 +121,7 @@ struct Home: View {
                                     }
                                     
                                     Spacer()
-
+                                    
                                 }
                                 .padding(.horizontal, 30)
                                 .padding(.top)
@@ -130,8 +133,12 @@ struct Home: View {
         .padding(.horizontal)
         
     }
+    
 }
+
+
 
 #Preview {
     Home()
+        .environmentObject(AppCoordinator())
 }

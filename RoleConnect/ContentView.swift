@@ -7,14 +7,23 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct ContentView: View {
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
-        VStack {
-            Home()
+        NavigationStack(path: $coordinator.navigationPath) {
+            coordinator.build(route: .home)
+                .navigationDestination(for: AppCoordinator.Route.self) { route in
+                    coordinator.build(route: route)
+                }
+                .navigationBarBackButtonHidden(true)
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AppCoordinator())
 }
