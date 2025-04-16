@@ -43,6 +43,7 @@ struct SlideToJoin: View {
                         .zIndex(1)
                     ShimmerTextView(size, progress: progress)
                 }
+                
             }
             
         }
@@ -54,7 +55,10 @@ struct SlideToJoin: View {
         }
         .frame(maxWidth: 300)
         .allowsTightening(!isComplete)
+    
     }
+
+
     
     // KnobView
     func KnobView(_ size: CGSize, progress: CGFloat, maxLimit: CGFloat) -> some View {

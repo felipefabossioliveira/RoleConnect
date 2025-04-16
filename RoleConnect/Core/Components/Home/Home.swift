@@ -140,5 +140,4 @@ struct Home: View {
 
 #Preview {
     Home()
-        .environmentObject(AppCoordinator())
 }

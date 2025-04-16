@@ -175,6 +175,7 @@ struct UpcomingEventDetail: View {
             }
             .padding(.top, 30)
             .padding(.horizontal, 6)
+
             
             Spacer()
         }
@@ -189,7 +190,5 @@ struct UpcomingEventDetail: View {
 
 
 #Preview {
-    UpcomingEventDetail()
-        .environmentObject(AppCoordinator())
-    
+    UpcomingEventDetail()    
 }

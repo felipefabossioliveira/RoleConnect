@@ -107,5 +107,4 @@ struct Participants: View {
 
 #Preview {
     Participants()
-        .environmentObject(AppCoordinator())
 }
