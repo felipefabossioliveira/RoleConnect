@@ -11,8 +11,8 @@ struct EventDetail: View {
     
     let config = SlideToJoin.Config(
         idleText: "Swipe to Join",
-        onSwipeText: "Confirms Joinment",
-        confirmationText: "Joined!",
+        onSwipeText: "Almost there 🔥",
+        confirmationText: "Have Fun 😊",
         tint: .green,
         foregroundColor: .white
     )
@@ -37,7 +37,7 @@ struct EventDetail: View {
     private var Banner: some View {
         Image("pizzaria")
             .resizable()
-            .offset(y: -270)
+            .offset(y: -300)
             .ignoresSafeArea()
             .overlay(alignment: .topTrailing) {
                 HStack {

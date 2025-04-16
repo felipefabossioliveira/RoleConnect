@@ -13,6 +13,7 @@ struct Participants: View {
     @State var spacing: CGFloat = -16
     @State var height: CGFloat = 40
     @State var circleHeight: CGFloat = 50
+    @State var showQuantityJoined: Bool = true
     
     var body: some View {
         HStack(spacing: spacing) {
@@ -30,7 +31,7 @@ struct Participants: View {
             Circle()
                 .frame(height: circleHeight)
                 .overlay {
-                    Image("profile")
+                    Image("profile2")
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())
@@ -41,7 +42,7 @@ struct Participants: View {
             Circle()
                 .frame(height: circleHeight)
                 .overlay {
-                    Image("profile")
+                    Image("profile3")
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())
@@ -52,7 +53,7 @@ struct Participants: View {
             Circle()
                 .frame(height: circleHeight)
                 .overlay {
-                    Image("profile")
+                    Image("profile4")
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())
@@ -60,20 +61,22 @@ struct Participants: View {
                 }
                 .foregroundStyle(.white)
             
-            Circle()
-                .frame(height: circleHeight)
-                .overlay {
-                    Circle()
-                        .foregroundStyle(.dark)
-                        .frame(height: height)
-                        .overlay {
-                            Text("+8k")
-                                .font(.caption)
-                                .foregroundStyle(.white)
-                                .fontWeight(.bold)
-                        }
-                }
-                .foregroundStyle(.white)
+            if showQuantityJoined {
+                Circle()
+                    .frame(height: circleHeight)
+                    .overlay {
+                        Circle()
+                            .foregroundStyle(.dark)
+                            .frame(height: height)
+                            .overlay {
+                                Text("+8k")
+                                    .font(.caption)
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.bold)
+                            }
+                    }
+                    .foregroundStyle(.white)
+            }
             
             if showJoin {
                 Spacer()

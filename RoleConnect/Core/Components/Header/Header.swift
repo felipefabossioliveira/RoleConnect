@@ -34,9 +34,6 @@ struct Header: View {
                     Text("Connect")
                 }
                 .fontWeight(.heavy)
-//                .font(.)
-                
-                
                 
                 Spacer()
                 

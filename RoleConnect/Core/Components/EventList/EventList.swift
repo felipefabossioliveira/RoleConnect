@@ -10,19 +10,6 @@ import SwiftUI
 struct EventList: View {
     var body: some View {
         VStack(spacing: 25) {
-            HStack {
-                Text("Next Events")
-                    .fontWeight(.bold)
-                    .foregroundStyle(.darkBlue)
-                
-                Spacer()
-                
-                Text("View All")
-                    .foregroundStyle(.dark)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.mediumGray)
-                
-            }
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 25) {
@@ -151,7 +138,6 @@ struct EventList: View {
             }
             .frame(height: 290)
         }
-        .padding()
     }
 }
 
