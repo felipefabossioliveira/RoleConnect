@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct Header: View {
-
+    
+    @Binding var isMenuOpen: Bool
+    
     @EnvironmentObject private var coordinator: AppCoordinator
-
+    
     var body: some View {
+        
         VStack {
             HStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.gray.opacity(0.1))
+//                    .stroke(.gray.opacity(0.2))
+                    .fill(.clear)
                     .overlay(alignment:.center) {
                         Image("menu")
                             .resizable()
@@ -24,6 +28,9 @@ struct Header: View {
                             .rotationEffect(Angle(degrees: 180))
                     }
                     .frame(width: 45, height: 45)
+                    .onTapGesture {
+                        isMenuOpen.toggle()
+                    }
                 
                 Spacer()
                 
@@ -61,6 +68,6 @@ struct Header: View {
 }
 
 #Preview {
-    Header()
+    Header(isMenuOpen: .constant(false))
     
 }

@@ -12,39 +12,48 @@ struct Home: View {
     @StateObject private var homeVM = HomeViewModel()
     @StateObject private var eventListVM = UpcomingEventViewModel()
     
+    @State private var isMenuOpen = false
     
     var body: some View {
-        
-        VStack {
-            
-            Header()
-            
-            SearchBar(searchText: $homeVM.searchText)
-            
-            ScrollView {
+        ZStack {
+            VStack {
                 
-                HStack {
-                    Text("Upcoming Event")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.darkBlue)
+                Header(isMenuOpen: $isMenuOpen)
+                
+                SearchBar(searchText: $homeVM.searchText)
+                
+                ScrollView {
+                    
+                    HStack {
+                        Text("Upcoming Event")
+                            .fontWeight(.bold)
+                            .foregroundStyle(.darkBlue)
+                        
+                        Spacer()
+                        
+                        Text("See more")
+                            .foregroundStyle(.darkPurple)
+                        
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                    
+                    UpcomingEventList()
+                        .padding(.leading)
+                    
+                    PopularEvent
+                        .padding(.top, 20)
                     
                     Spacer()
-                    
-                    Text("See more")
-                        .foregroundStyle(.darkPurple)
-                    
                 }
-                .padding(.horizontal)
-                .padding(.top, 10)
-                
-                UpcomingEventList()
-                    .padding(.leading)
-                
-                PopularEvent
-                    .padding(.top, 20)
-                
-                Spacer()
             }
+            .blur(radius: isMenuOpen ? 5 : 0)
+            .animation(.easeInOut, value: isMenuOpen)
+            
+            LeadingMenu(isOpen: $isMenuOpen)
+                .offset(x: isMenuOpen ? 0 : -280)
+                .animation(.easeInOut, value: isMenuOpen)
+                .edgesIgnoringSafeArea(.vertical)
         }
     }
     
@@ -71,7 +80,6 @@ struct Home: View {
                 .overlay(alignment: .topTrailing) {
                     VStack {
                         HStack {
-                            
                             Participants(showJoin: false, spacing: -12, height: 36, circleHeight: 40, showQuantityJoined: false)
                             
                             Spacer()
@@ -135,8 +143,6 @@ struct Home: View {
     }
     
 }
-
-
 
 #Preview {
     Home()

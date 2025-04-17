@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct ContentView: View {
+    
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {

@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct RoleConnectApp: App {
+    
     @StateObject private var coordinator = AppCoordinator()
     
     var body: some Scene {
