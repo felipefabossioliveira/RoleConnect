@@ -11,11 +11,14 @@ import SwiftUI
 struct RoleConnectApp: App {
     
     @StateObject private var coordinator = AppCoordinator()
+    @StateObject private var networkMonitor = NetworkMonitor()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(coordinator)
+                .environment(\.isNetworkConnected, networkMonitor.isConnected)
+                .environment(\.connectionType, networkMonitor.connectionType)
         }
     }
 }

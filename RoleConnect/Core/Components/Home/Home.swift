@@ -16,6 +16,7 @@ struct Home: View {
     
     var body: some View {
         ZStack {
+            
             VStack {
                 
                 Header(isMenuOpen: $isMenuOpen)

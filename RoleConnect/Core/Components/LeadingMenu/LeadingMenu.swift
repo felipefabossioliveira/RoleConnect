@@ -12,7 +12,11 @@ struct LeadingMenu: View {
     @Binding var isOpen: Bool
     
     @EnvironmentObject private var coordinator: AppCoordinator
-
+    
+    @Environment(\.isNetworkConnected) private var isConnected
+    @Environment(\.connectionType) private var connectionType
+    
+    
     
     var body: some View {
         ZStack {
@@ -26,7 +30,7 @@ struct LeadingMenu: View {
             }
             
             GeometryReader { geo in
-                VStack(alignment: .leading, spacing: 40) {
+                VStack(alignment: .leading, spacing: 30) {
                     
                     menuProfileHeader
                     
@@ -38,14 +42,35 @@ struct LeadingMenu: View {
                     
                     menuSupportOptions
                     
+                    internetConnection
+                    
                     Spacer()
+                    
+                    
                 }
-                .padding(.top, 85)
+                .padding(.top, 80)
                 .padding(.horizontal)
                 .frame(width: 280, height: .infinity)
                 .background(Color.white)
                 .zIndex(2)
                 
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var internetConnection: some View {
+        VStack (alignment: .leading, spacing: 20){
+            
+            Text("Connection")
+                .foregroundStyle(.gray)
+            
+            HStack {
+                Image(systemName: (isConnected ?? false) ? "wifi" : "wifi.slash")
+                    .foregroundStyle((isConnected ?? false) ? .greenStatus : .red)
+                Text((isConnected ?? false) ? "Connected" : "No Internet")
+                    .foregroundStyle(.dark)
+                    .fontWeight(.semibold)
             }
         }
     }
