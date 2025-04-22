@@ -28,6 +28,7 @@ struct Home: View {
                         Text("Upcoming Event")
                             .fontWeight(.bold)
                             .foregroundStyle(.darkBlue)
+                            .padding(.bottom, 10)
                         
                         Spacer()
                         
@@ -64,6 +65,7 @@ struct Home: View {
                 Text("Popular Event")
                     .fontWeight(.bold)
                     .foregroundStyle(.darkBlue)
+                    .padding(.bottom, 10)
                 
                 Spacer()
                 

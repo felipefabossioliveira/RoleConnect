@@ -16,7 +16,7 @@ struct SearchBar: View {
             Image(systemName: "magnifyingglass")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 25)
+                .frame(height: 19)
                 .padding(.trailing, 10)
             
             TextField("Search events, restaurants..", text: $searchText)
@@ -36,7 +36,7 @@ struct SearchBar: View {
                 }
         
         }
-        .frame(height: 25)
+        .frame(height: 15)
         .font(.headline)
         .padding()
         .background (

@@ -35,7 +35,7 @@ struct Header: View {
                 Spacer()
                 
                 HStack {
-                    Text("Role")
+                    Text("Rolê")
                     
                     Circle()
                         .fill(.darkPurple)
@@ -49,13 +49,15 @@ struct Header: View {
                 
                 HStack {
                     Circle()
-                        .frame(width: 50, height: 50)
-                        .foregroundStyle(.gray.opacity(0.2))
+                        .fill(.clear)
+                        .frame(width: 40, height: 40)
                         .overlay {
-                            Image("profile2")
+                            Image("profile4")
                                 .resizable()
                                 .scaledToFill()
                                 .clipShape(.circle)
+                                .frame(height: 35)
+                            
                         }
                 }
                 .onTapGesture {

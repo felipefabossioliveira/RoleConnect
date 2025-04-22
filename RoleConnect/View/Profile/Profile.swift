@@ -197,7 +197,7 @@ struct Profile: View {
                         
                         
                         
-                        Text("Passengers")
+                        Text("Friends")
                         
                         Spacer()
                         
