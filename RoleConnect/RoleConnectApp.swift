@@ -19,6 +19,7 @@ struct RoleConnectApp: App {
                 .environmentObject(coordinator)
                 .environment(\.isNetworkConnected, networkMonitor.isConnected)
                 .environment(\.connectionType, networkMonitor.connectionType)
+                .preferredColorScheme(.light)
         }
     }
 }

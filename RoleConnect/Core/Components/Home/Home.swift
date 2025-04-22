@@ -12,6 +12,8 @@ struct Home: View {
     @StateObject private var homeVM = HomeViewModel()
     @StateObject private var eventListVM = UpcomingEventViewModel()
     
+    @Environment(\.isNetworkConnected) private var isConnected
+    
     @State private var isMenuOpen = false
     
     var body: some View {
@@ -55,17 +57,17 @@ struct Home: View {
             LeadingMenu(isOpen: $isMenuOpen)
                 .offset(x: isMenuOpen ? 0 : -280)
                 .animation(.easeInOut, value: isMenuOpen)
-//                .edgesIgnoringSafeArea(.vertical)
         }
-//        .sheet(isPresented: .constant(true)) {
-//            withAnimation(.smooth) {
-//                NetworkMonitorView()
-//                    .presentationDetents([.height(310)])
-//                    .presentationCornerRadius(0)
-//                    .presentationBackgroundInteraction(.disabled)
-//                    .presentationBackground(.clear)
-//            }
-//        }
+        .sheet(isPresented: .constant(!(isConnected ?? true))){
+            withAnimation(.smooth) {
+                NetworkMonitorView()
+                    .presentationDetents([.height(310)])
+                    .presentationCornerRadius(0)
+                    .presentationBackgroundInteraction(.disabled)
+                    .presentationBackground(.clear)
+                    .interactiveDismissDisabled()
+            }
+        }
     }
     
     @ViewBuilder

@@ -117,7 +117,7 @@ struct Profile: View {
                 VStack (alignment: .leading) {
                     
                     Text("My Details")
-                        .font(.title3)
+                        .font(.headline)
                         .fontWeight(.semibold)
                         .padding(.horizontal)
                         .padding(.bottom, 8)
@@ -144,6 +144,7 @@ struct Profile: View {
                         
                         
                         Text("Check-in's")
+                            .font(.subheadline)
                         
                         Spacer()
                         
@@ -171,6 +172,8 @@ struct Profile: View {
                         
                         
                         Text("Personal information")
+                            .font(.subheadline)
+
                         
                         Spacer()
                         
@@ -198,6 +201,8 @@ struct Profile: View {
                         
                         
                         Text("Friends")
+                            .font(.subheadline)
+
                         
                         Spacer()
                         
@@ -223,7 +228,7 @@ struct Profile: View {
                 VStack (alignment: .leading) {
                     
                     Text("Preferences")
-                        .font(.title3)
+                        .font(.headline)
                         .fontWeight(.semibold)
                         .padding(.horizontal)
                         .padding(.bottom, 8)
@@ -245,9 +250,13 @@ struct Profile: View {
                             .padding(.horizontal)
                         
                         VStack(alignment: .leading, spacing: 4) {
+                            
                             Text("Location")
+                                .font(.subheadline)
+
                             
                             Text("Brazil")
+                                .font(.caption)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.gray.opacity(0.8))
                         }
@@ -276,9 +285,13 @@ struct Profile: View {
                         
                         
                         VStack (alignment: .leading, spacing: 4) {
+                            
                             Text("Language")
+                                .font(.subheadline)
+
                             
                             Text("English")
+                                .font(.caption)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.gray.opacity(0.8))
                         }

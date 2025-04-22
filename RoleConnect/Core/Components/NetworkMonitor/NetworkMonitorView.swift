@@ -34,6 +34,7 @@ struct NetworkMonitorView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color.primary)
                 .padding(.top, 10)
+                .padding(.horizontal, -20)
         }
         .fontDesign(.rounded)
         .padding([.horizontal, .top], 20)
@@ -48,5 +49,4 @@ struct NetworkMonitorView: View {
 
 #Preview {
     NetworkMonitorView()
-        .background(Color.gray)
 }
