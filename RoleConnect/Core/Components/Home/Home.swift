@@ -55,8 +55,17 @@ struct Home: View {
             LeadingMenu(isOpen: $isMenuOpen)
                 .offset(x: isMenuOpen ? 0 : -280)
                 .animation(.easeInOut, value: isMenuOpen)
-                .edgesIgnoringSafeArea(.vertical)
+//                .edgesIgnoringSafeArea(.vertical)
         }
+//        .sheet(isPresented: .constant(true)) {
+//            withAnimation(.smooth) {
+//                NetworkMonitorView()
+//                    .presentationDetents([.height(310)])
+//                    .presentationCornerRadius(0)
+//                    .presentationBackgroundInteraction(.disabled)
+//                    .presentationBackground(.clear)
+//            }
+//        }
     }
     
     @ViewBuilder

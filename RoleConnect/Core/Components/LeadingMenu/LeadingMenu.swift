@@ -16,8 +16,6 @@ struct LeadingMenu: View {
     @Environment(\.isNetworkConnected) private var isConnected
     @Environment(\.connectionType) private var connectionType
     
-    
-    
     var body: some View {
         ZStack {
             if isOpen {
@@ -46,9 +44,8 @@ struct LeadingMenu: View {
                     
                     Spacer()
                     
-                    
                 }
-                .padding(.top, 80)
+                .padding(.top, 20)
                 .padding(.horizontal)
                 .frame(width: 280, height: .infinity)
                 .background(Color.white)
