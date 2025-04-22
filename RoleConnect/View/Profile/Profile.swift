@@ -12,60 +12,178 @@ struct Profile: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
+        
+        header
+        
         GeometryReader { geo in
-            VStack(spacing: 30) {
+            
+            VStack(spacing:30) {
                 
-                headerView
+                userInformations
                 
-                VStack(spacing: 30) {
-                    myDetailsView
-                        .frame(width: geo.size.width / 1.05)
+                miniDashboardInfo
+                
+                ScrollView(showsIndicators: false) {
                     
-                    preferencesView
-                        .frame(width: geo.size.width / 1.05)
+                    VStack(spacing: 40) {
+                        
+                        accountSettings
+                        
+                        essentials
+                        
+                        toolsAndServices
+                    }
                 }
+                
+                Spacer()
+                
             }
             .navigationBarBackButtonHidden()
-
+            .padding(.horizontal, 30)
+            .ignoresSafeArea(edges: .bottom)
         }
     }
     
     @ViewBuilder
-    private var headerView: some View {
-        ZStack {
-            VStack (spacing: 20) {
-                HStack {
-                    Circle()
-                        .foregroundStyle(.dark)
-                        .frame(height: 44)
-                        .overlay {
-                            Image(systemName: "chevron.left")
-                                .foregroundStyle(.white)
-                        }
-                        .onTapGesture {
-                            withAnimation(.easeOut) {
-                                coordinator.pop()
-                            }
-                        }
-                    
-                    Spacer()
-                    
-                    Text("My Profile")
-                        .fontWeight(.semibold)
-                    
+    private var header: some View {
+        HStack(spacing: 15) {
+            Circle()
+                .fill(.darkPurple)
+                .frame(height: 45)
+                .overlay {
+                    Image(systemName: "arrow.left")
+                        .foregroundStyle(.white)
                 }
-                .padding(.horizontal)
+            
+            Spacer()
+            
+            HStack {
+                Text("Rolê")
                 
-                userInformations
-           
+                Circle()
+                    .fill(.darkPurple)
+                    .frame(height: 12)
+                
+                Text("Connect")
             }
-            .padding(.top, 60)
-            .padding(.horizontal)
+            .fontWeight(.heavy)
+            
             
         }
-        .ignoresSafeArea(edges: .all)
-        .frame(height: 160)
-        .background(Color.gray.opacity(0.05))
+        .padding(.top, 10)
+        .padding(.bottom, 15)
+        .padding(.horizontal, 30)
+        .onTapGesture {
+            withAnimation(.smooth) {
+                coordinator.pop()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var miniDashboardInfo: some View {
+        VStack {
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(.darkPurple.opacity(0.2))
+                .fill(.lightPurple.opacity(0.5))
+                .frame(height: 80)
+                .overlay {
+                    HStack {
+                        
+                        VStack(spacing: 10) {
+                            Text("64")
+                                .foregroundStyle(.darkPurple)
+                                .fontWeight(.bold)
+                            
+                            Text("Feedbacks")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                                .fontWeight(.bold)
+                        }
+                        
+                        Spacer()
+                        
+                        VStack(spacing: 10) {
+                            Text("102")
+                                .foregroundStyle(.darkPurple)
+                                .fontWeight(.bold)
+                            
+                            Text("Joinments")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                                .fontWeight(.bold)
+                        }
+                        
+                        Spacer()
+                        
+                        
+                        VStack(spacing: 10) {
+                            Text("82")
+                                .foregroundStyle(.darkPurple)
+                                .fontWeight(.bold)
+                            
+                            Text("Places Visited")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                                .fontWeight(.bold)
+                        }
+                    }
+                    .padding(.horizontal, 25)
+                    
+                    
+                }
+        }
+    }
+    
+    @ViewBuilder
+    private var accountSettings: some View {
+        VStack(alignment: .leading, spacing: 30) {
+            
+            Text("Account Settings")
+                .fontWeight(.bold)
+            
+            HStack {
+                Image(systemName: "person")
+                
+                Text("Personal Information")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+            }
+            
+            HStack {
+                Image(systemName: "staroflife.shield")
+                
+                Text("Password & Security")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+            }
+            
+            HStack {
+                Image(systemName: "bell.badge")
+                
+                Text("Notifications Settings")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+            }
+        }
     }
     
     @ViewBuilder
@@ -76,238 +194,117 @@ struct Profile: View {
             .overlay {
                 HStack {
                     Circle()
-                        .frame(width: 50, height: 50)
+                        .frame(height: 55)
                         .overlay {
-                            Image("profile")
+                            Image("profile3")
                                 .resizable()
                                 .scaledToFill()
                                 .clipShape(Circle())
-                                .frame(width: 45, height: 45)
                         }
                     
                     VStack(alignment: .leading) {
                         Text("Felipe Fabossi")
                             .font(.headline)
+                            .fontWeight(.heavy)
                             .foregroundStyle(.dark)
                         
-                        Text(verbatim: "ffabossi@ciandt.com")
+                        Text(verbatim: "Americana, SP")
                             .foregroundStyle(.dark.opacity(0.7))
                             .font(.subheadline)
+                            .fontWeight(.semibold)
                         
                     }
                     
                     Spacer()
                     
-                    Image(systemName: "rectangle.portrait.and.arrow.forward")
-                        .rotationEffect(Angle(degrees: 180))
-                        .fontWeight(.bold)
-                    
+                    RoundedRectangle(cornerRadius: 50)
+                        .stroke(.darkPurple.opacity(0.4))
+                        .fill(.lightPurple)
+                        .frame(width: 82, height: 35)
+                        .overlay {
+                            Text("Edit")
+                                .foregroundStyle(.darkPurple)
+                                .fontWeight(.bold)
+                                .font(.subheadline)
+                        }
                 }
-                .padding(.horizontal)
             }
     }
     
     @ViewBuilder
-    private var myDetailsView: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(.clear)
-            .stroke(.gray.opacity(0.5))
-            .frame(height: 270)
-            .overlay {
-                VStack (alignment: .leading) {
-                    
-                    Text("My Details")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .padding(.horizontal)
-                        .padding(.bottom, 8)
-                    
-                    RoundedRectangle(cornerRadius: 0)
-                        .fill(.gray.opacity(0.3))
-                        .frame(height: 1)
-                        .padding(.bottom, 13)
-                    
-                    
-                    HStack(alignment: .center, spacing: 0) {
-                        Circle()
-                            .fill(Color("darkGray"))
-                            .frame(width: 50, height: 50)
-                            .overlay {
-                                Image(systemName: "ticket.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundStyle(.black)
-                                    .frame(width: 20, height: 20)
-                            }
-                            .padding(.horizontal)
-                        
-                        
-                        
-                        Text("Check-in's")
-                            .font(.subheadline)
-                        
-                        Spacer()
-                        
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.gray.opacity(0.7))
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
-                    }
-                    
-                    HStack(alignment: .center, spacing: 0) {
-                        Circle()
-                            .fill(Color("darkGray"))
-                            .frame(width: 50, height: 50)
-                            .overlay {
-                                Image(systemName: "info.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundStyle(.darkPurple)
-                                    .frame(width: 20, height: 20)
-                            }
-                            .padding(.horizontal)
-                        
-                        
-                        
-                        Text("Personal information")
-                            .font(.subheadline)
-
-                        
-                        Spacer()
-                        
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.gray.opacity(0.7))
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
-                    }
-                    
-                    HStack(alignment: .center, spacing: 0) {
-                        Circle()
-                            .fill(Color("darkGray"))
-                            .frame(width: 50, height: 50)
-                            .overlay {
-                                Image(systemName: "person.3.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundStyle(.dark)
-                                    .frame(width: 23, height: 20)
-                            }
-                            .padding(.horizontal)
-                        
-                        
-                        
-                        Text("Friends")
-                            .font(.subheadline)
-
-                        
-                        Spacer()
-                        
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.gray.opacity(0.7))
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
-                    }
-                }
+    private var essentials: some View {
+        VStack(alignment: .leading, spacing: 30) {
+            
+            Text("Essentials")
+                .fontWeight(.bold)
+            
+            HStack {
+                Image(systemName: "heart")
                 
+                Text("My Favorites")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
             }
+            
+            HStack {
+                Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+                
+                Text("Viewed")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+            }
+        }
     }
     
     @ViewBuilder
-    private var preferencesView: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(.clear)
-            .stroke(.gray.opacity(0.5))
-            .frame(height: 220)
-            .overlay {
-                VStack (alignment: .leading) {
-                    
-                    Text("Preferences")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .padding(.horizontal)
-                        .padding(.bottom, 8)
-                    
-                    RoundedRectangle(cornerRadius: 0)
-                        .fill(.gray.opacity(0.3))
-                        .frame(height: 1)
-                        .padding(.bottom, 13)
-                    
-                    
-                    HStack(alignment: .center, spacing: 0) {
-                        
-                        Circle()
-                            .fill(Color("darkGray"))
-                            .frame(width: 50, height: 50)
-                            .overlay {
-                                Text("🇧🇷")
-                            }
-                            .padding(.horizontal)
-                        
-                        VStack(alignment: .leading, spacing: 4) {
-                            
-                            Text("Location")
-                                .font(.subheadline)
-
-                            
-                            Text("Brazil")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.gray.opacity(0.8))
-                        }
-                        Spacer()
-                        
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.gray.opacity(0.7))
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
-                    }
-                    
-                    HStack(alignment: .center, spacing: 0) {
-                        Circle()
-                            .fill(Color("darkGray"))
-                            .frame(width: 50, height: 50)
-                            .overlay {
-                                Image("translate")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                    .colorInvert()
-                            }
-                            .padding(.horizontal)
-                        
-                        
-                        VStack (alignment: .leading, spacing: 4) {
-                            
-                            Text("Language")
-                                .font(.subheadline)
-
-                            
-                            Text("English")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.gray.opacity(0.8))
-                        }
-                        
-                        Spacer()
-                        
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.gray.opacity(0.7))
-                            .frame(width: 15, height: 15)
-                            .padding(.trailing)
-                    }
-                }
+    private var toolsAndServices: some View {
+        VStack(alignment: .leading, spacing: 30) {
+            
+            Text("Tools & Services")
+                .fontWeight(.bold)
+            
+            HStack {
+                Image(systemName: "questionmark.circle")
+                
+                Text("FAQ")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
             }
+            
+            HStack {
+                Image(systemName: "info.circle")
+                
+                Text("Help Center")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+            }
+        }
     }
+    
 }
 
 #Preview {
