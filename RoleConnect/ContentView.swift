@@ -17,7 +17,6 @@ struct ContentView: View {
                 .navigationDestination(for: AppCoordinator.Route.self) { route in
                     coordinator.build(route: route)
                 }
-                .navigationBarBackButtonHidden(true)
         }
     }
 }
