@@ -171,6 +171,9 @@ struct LeadingMenu: View {
                     .fontWeight(.medium)
                     .font(.subheadline)
             }
+            .onTapGesture {
+                coordinator.push(.wallet)
+            }
             
         }
     }

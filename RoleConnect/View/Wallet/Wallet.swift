@@ -22,6 +22,7 @@ struct Wallet: View {
             
             Spacer()
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     @ViewBuilder

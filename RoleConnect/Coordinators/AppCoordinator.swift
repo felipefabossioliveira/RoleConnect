@@ -16,6 +16,7 @@ class AppCoordinator: ObservableObject {
         case home
         case detail
         case profile
+        case wallet
     }
     
     func push(_ route: Route) {
@@ -36,6 +37,8 @@ class AppCoordinator: ObservableObject {
         case .detail: UpcomingEventDetail()
     
         case .profile: Profile()
+            
+        case .wallet: Wallet()
             
         }
     }
