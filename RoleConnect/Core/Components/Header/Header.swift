@@ -1,75 +1,108 @@
-//
-//  Header.swift
-//  RoleConnect
-//
-//  Created by Felipe Fabossi on 09/04/25.
-//
 
 import SwiftUI
 
 struct Header: View {
+    
+    @StateObject private var homeVM = HomeViewModel()
     
     @Binding var isMenuOpen: Bool
     
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.top)
+            
+            VStack(alignment: .leading, spacing: 20) {
+    
+                    menuAndProfile
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    Text("Hey Felipe 👋🏻,")
+                        .foregroundStyle(.gray)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    
+                    Text("Find the amazing events made \nspecially for you.")
+                        .foregroundStyle(.white)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    SearchBar(searchText: $homeVM.searchText)
+                    
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal)
+            }
+            
+        }
+        .frame(maxHeight: 270)
+    }
+    
+    private var menuAndProfile: some View {
         
-        VStack {
-            HStack {
-                RoundedRectangle(cornerRadius: 10)
-//                    .stroke(.gray.opacity(0.2))
-                    .fill(.clear)
-                    .overlay(alignment:.center) {
-                        Image("menu")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 35)
-                            .rotationEffect(Angle(degrees: 180))
-                    }
-                    .frame(width: 45, height: 45)
-                    .onTapGesture {
-                        isMenuOpen.toggle()
-                    }
-                
-                Spacer()
-                
-                HStack {
-                    Text("Rolê")
-                    
-                    Circle()
-                        .fill(.darkPurple)
-                        .frame(height: 12)
-                    
-                    Text("Connect")
+        HStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(.clear)
+                .overlay(alignment: .center) {
+                    Image(systemName: "square.grid.2x2.fill")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .foregroundStyle(.white)
                 }
-                .fontWeight(.heavy)
-                
-                Spacer()
-                
-                HStack {
-                    Circle()
-                        .fill(.clear)
-                        .frame(width: 40, height: 40)
-                        .overlay {
-                            Image("profile4")
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(.circle)
-                                .frame(height: 35)
-                            
-                        }
-                }
+                .frame(width: 45, height: 45)
                 .onTapGesture {
-                    coordinator.push(.profile)
+                    isMenuOpen.toggle()
                 }
+            
+            Spacer()
+            
+            HStack(alignment: .lastTextBaseline, spacing: 0) {
+                
+                Circle()
+                    .frame(height: 45)
+                    .overlay {
+                        Image("profile3")
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                    }
+                    .padding(.trailing)
+                
+                Circle()
+                    .frame(width: 11, height: 11)
+                    .offset(x: -30)
+                    .foregroundStyle(.white)
+                    .overlay {
+                        Circle()
+                            .frame(width: 9, height: 9)
+                            .foregroundStyle(.greenStatus)
+                            .offset(x: -30)
+                    }
             }
         }
-        .padding()
+    }
+    
+    private var profileButton: some View {
+        Circle()
+            .fill(.clear)
+            .frame(width: 50, height: 50)
+            .overlay {
+                Image("profile2")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.white)
+            }
+            .onTapGesture {
+                coordinator.push(.profile)
+            }
     }
 }
 
+
 #Preview {
-    Header(isMenuOpen: .constant(false))
-    
+    Home()
 }

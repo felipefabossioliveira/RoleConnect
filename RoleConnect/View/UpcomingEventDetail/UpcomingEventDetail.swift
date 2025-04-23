@@ -50,6 +50,7 @@ struct UpcomingEventDetail: View {
                         .frame(height: 44)
                         .overlay {
                             Image(systemName: "chevron.left")
+                                .foregroundStyle(.dark)
                         }
                         .onTapGesture {
                             withAnimation(.easeOut) {
@@ -115,13 +116,12 @@ struct UpcomingEventDetail: View {
                 .padding(.top, 20)
                 .overlay {
                     HStack(alignment: .bottom) {
-                        VStack(alignment: .leading, spacing: 5) {
+                        VStack(alignment: .leading, spacing: 10) {
                             Text("Participants")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
-                            Participants(showJoin: false, spacing: -22)
-                        }
+                            Participants(showJoin: false, height: 30, circleHeight: 35)                        }
                         .padding(.top, 20)
                         
                         Spacer()
@@ -183,7 +183,7 @@ struct UpcomingEventDetail: View {
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
         .frame(height: UIScreen.main.bounds.height * 0.58)
-        .background(.white)
+        .background(.dark)
         .cornerRadius(30)
     }
 }

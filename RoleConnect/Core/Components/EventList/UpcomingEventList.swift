@@ -30,22 +30,19 @@ struct UpcomingEventList: View {
 }
 
 struct EventListItem: View {
-    
     let item: UpcomingEventModel
     
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
-            .fill(.white)
-            .stroke(.gray.opacity(0.2), lineWidth: 2)
+            .fill(.dark)
+            .frame(width: 300, height: 290)
             .overlay {
-                
-                VStack(alignment: .leading) {
-                    
+                VStack(alignment: .leading, spacing: 0) {
                     Image(item.image)
                         .resizable()
-                        .scaledToFit()
-                        .cornerRadius(20)
-                        .shadow(color: .gray.opacity(0.7), radius: 10, y: 10)
+                        .scaledToFill()
+                        .frame(width: 300, height: 170)
+                        .clipShape(TopRoundedRectangle(cornerRadius: 20))
                         .overlay(alignment: .topTrailing) {
                             Circle()
                                 .foregroundStyle(.white)
@@ -54,46 +51,85 @@ struct EventListItem: View {
                                     Image(systemName: "heart.fill")
                                         .foregroundStyle(.pink)
                                 }
-                                .padding()
+                                .padding(10)
                         }
                     
-                    Text(item.name)
-                        .font(.subheadline)
-                        .fontWeight(.bold)
-                        .padding(.top, 10)
-                    
-                    HStack(spacing: 10) {
-                        Image("calendar")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 20)
+                    // Conteúdo abaixo da imagem
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text(item.name)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 10)
                         
+                        HStack(spacing: 10) {
+                            Image("calendar")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                            
+                            Text(item.date)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundStyle(.gray)
+                            
+                            Image("clock")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                            
+                            Text(item.time)
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundStyle(.gray)
+                        }
+                        .padding(.horizontal, 10)
                         
-                        Text(item.date)
-                            .font(.caption)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.gray.opacity(0.7))
-                        
-                        Image("clock")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 20)
-                        
-                        Text(item.time)
-                            .font(.caption)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.gray.opacity(0.7))
-                        
+                        Participants(height: 30, circleHeight: 35)
+                            .padding(.horizontal, 10)
                     }
-                    
-                    Participants(height: 30, circleHeight: 35)
-                        .padding(.top, 10)
-                    
+                    .padding(.vertical, 10)
                 }
-                .padding(.horizontal)
-                
             }
-            .frame(width: 250)
+    }
+}
+
+struct TopRoundedRectangle: Shape {
+    let cornerRadius: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        let width = rect.size.width
+        let height = rect.size.height
+        let radius = min(cornerRadius, min(width, height) / 2)
+        
+        path.move(to: CGPoint(x: 0, y: radius))
+        
+        path.addArc(
+            center: CGPoint(x: radius, y: radius),
+            radius: radius,
+            startAngle: Angle(degrees: 180),
+            endAngle: Angle(degrees: 270),
+            clockwise: false
+        )
+        
+        path.addLine(to: CGPoint(x: width - radius, y: 0))
+        
+        path.addArc(
+            center: CGPoint(x: width - radius, y: radius),
+            radius: radius,
+            startAngle: Angle(degrees: -90),
+            endAngle: Angle(degrees: 0),
+            clockwise: false
+        )
+        
+        path.addLine(to: CGPoint(x: width, y: height))
+        
+        path.addLine(to: CGPoint(x: 0, y: height))
+        
+        path.closeSubpath()
+        
+        return path
     }
 }
 

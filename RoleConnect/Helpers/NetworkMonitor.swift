@@ -24,7 +24,7 @@ class NetworkMonitor: ObservableObject {
         startMonitoring()
     }
     
-    private func startMonitoring(){
+    private func startMonitoring() {
         monitor.pathUpdateHandler = { path in
             Task { @MainActor in
                 self.isConnected = path.status == .satisfied
@@ -37,7 +37,6 @@ class NetworkMonitor: ObservableObject {
                 }
             }
         }
-        
         monitor.start(queue: queue)
     }
     

@@ -95,6 +95,7 @@ struct Participants: View {
                         .fontWeight(.bold)
                         .foregroundStyle(.darkPurple)
                 }
+                .padding(.horizontal)
                 .onTapGesture {
                     print("Toque detectado")
                     coordinator.push(.detail)

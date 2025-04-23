@@ -29,6 +29,7 @@ struct NetworkMonitorView: View {
             
             Text("Waiting for internet connection...")
                 .font(.caption)
+                .fontWeight(.semibold)
                 .foregroundStyle(.white)
                 .padding(.vertical, 12)
                 .frame(maxWidth: .infinity)

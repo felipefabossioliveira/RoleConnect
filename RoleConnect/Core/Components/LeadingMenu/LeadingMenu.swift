@@ -19,7 +19,7 @@ struct LeadingMenu: View {
     var body: some View {
         ZStack {
             if isOpen {
-                Color.white.opacity(0.3)
+                Color.black.opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         isOpen = false
@@ -47,8 +47,9 @@ struct LeadingMenu: View {
                 }
                 .padding(.top, 20)
                 .padding(.horizontal)
+                .padding(.trailing, 12)
                 .frame(width: 280, height: .infinity)
-                .background(Color.white)
+                .background(.black)
                 .zIndex(2)
                 
             }
@@ -66,8 +67,10 @@ struct LeadingMenu: View {
                 Image(systemName: (isConnected ?? false) ? "wifi" : "wifi.slash")
                     .foregroundStyle((isConnected ?? false) ? .greenStatus : .red)
                 Text((isConnected ?? false) ? "Connected" : "No Internet")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.semibold)
+                    .font(.subheadline)
+                
             }
         }
     }
@@ -89,12 +92,12 @@ struct LeadingMenu: View {
                         }
                     
                     Circle()
-                        .frame(width: 14, height: 14)
+                        .frame(width: 11, height: 11)
                         .offset(x: -12)
                         .foregroundStyle(.white)
                         .overlay {
                             Circle()
-                                .frame(width: 11, height: 11)
+                                .frame(width: 9, height: 9)
                                 .foregroundStyle(.greenStatus)
                                 .offset(x: -12)
                         }
@@ -108,7 +111,7 @@ struct LeadingMenu: View {
                         .fontWeight(.semibold)
                     
                     Text(verbatim: "Felipe Fabossi")
-                        .foregroundStyle(.dark)
+                        .foregroundStyle(.white)
                         .fontWeight(.bold)
                     
                 }
@@ -120,6 +123,7 @@ struct LeadingMenu: View {
                 Image(systemName: "chevron.right")
                     .font(.title3)
                     .fontWeight(.bold)
+                    .foregroundStyle(.white)
                 
             }
         }
@@ -137,22 +141,35 @@ struct LeadingMenu: View {
             
             HStack {
                 Image(systemName: "bookmark")
-                    .foregroundStyle(.mediumGray)
+                    .foregroundStyle(Color.yellow)
                 
                 Text("Favorites")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
             
             HStack {
                 Image(systemName: "wallet.pass")
-                    .frame(height: 19)
                     .foregroundStyle(.mediumGray)
                 
                 Text("Expenses")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
             }
+            
+            HStack {
+                Image(systemName: "wallet.bifold")
+                    .foregroundStyle(.brown)
+                
+                Text("Wallet")
+                    .foregroundStyle(.white)
+                    .fontWeight(.medium)
+                    .font(.subheadline)
+            }
+            
         }
     }
     
@@ -168,8 +185,9 @@ struct LeadingMenu: View {
                     .foregroundStyle(.mediumGray)
                 
                 Text("Inbox")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
                 
                 Spacer()
                 
@@ -187,12 +205,15 @@ struct LeadingMenu: View {
             
             HStack {
                 Image(systemName: "bell.badge")
-                    .frame(height: 19)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 20)
                     .foregroundStyle(.mediumGray)
                 
                 Text("Notifications")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
                 
                 Spacer()
                 
@@ -224,28 +245,34 @@ struct LeadingMenu: View {
                     .foregroundStyle(.mediumGray)
                 
                 Text("Feedback")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
             
             HStack {
                 Image(systemName: "lifepreserver")
                     .frame(height: 19)
-                    .foregroundStyle(.mediumGray)
+                    .foregroundStyle(Color.blue)
                 
                 Text("Help")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
             
             HStack {
                 Image(systemName: "gearshape.2")
                     .frame(height: 19)
-                    .foregroundStyle(.mediumGray)
+                    .foregroundStyle(.gray)
                 
                 Text("Settings")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
         }
     }
@@ -264,17 +291,21 @@ struct LeadingMenu: View {
                     .foregroundStyle(.mediumGray)
                 
                 Text("Update Profile")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
             
             HStack {
-                Image(systemName: "globe")
-                    .foregroundStyle(.mediumGray)
+                Image(systemName: "globe.americas.fill")
+                    .foregroundStyle(.blue)
                 
                 Text("Language")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
             
             HStack {
@@ -282,8 +313,10 @@ struct LeadingMenu: View {
                     .foregroundStyle(.mediumGray)
                 
                 Text("Change Password")
-                    .foregroundStyle(.dark)
+                    .foregroundStyle(.white)
                     .fontWeight(.medium)
+                    .font(.subheadline)
+                
             }
             
         }

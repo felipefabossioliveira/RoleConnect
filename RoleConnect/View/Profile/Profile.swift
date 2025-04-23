@@ -17,15 +17,14 @@ struct Profile: View {
         
         GeometryReader { geo in
             
-            VStack(spacing:30) {
+            VStack {
                 
                 userInformations
-                
-                miniDashboardInfo
                 
                 ScrollView(showsIndicators: false) {
                     
                     VStack(spacing: 40) {
+                        miniDashboardInfo
                         
                         accountSettings
                         
@@ -85,7 +84,7 @@ struct Profile: View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
                 .stroke(.darkPurple.opacity(0.2))
-                .fill(.lightPurple.opacity(0.5))
+                .fill(.dark)
                 .frame(height: 80)
                 .overlay {
                     HStack {
@@ -97,7 +96,7 @@ struct Profile: View {
                             
                             Text("Feedbacks")
                                 .font(.caption)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(.white)
                                 .fontWeight(.bold)
                         }
                         
@@ -110,7 +109,7 @@ struct Profile: View {
                             
                             Text("Joinments")
                                 .font(.caption)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(.white)
                                 .fontWeight(.bold)
                         }
                         
@@ -124,13 +123,11 @@ struct Profile: View {
                             
                             Text("Places Visited")
                                 .font(.caption)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(.white)
                                 .fontWeight(.bold)
                         }
                     }
                     .padding(.horizontal, 25)
-                    
-                    
                 }
         }
     }
@@ -206,10 +203,10 @@ struct Profile: View {
                         Text("Felipe Fabossi")
                             .font(.headline)
                             .fontWeight(.heavy)
-                            .foregroundStyle(.dark)
+                            .foregroundStyle(.white)
                         
                         Text(verbatim: "Americana, SP")
-                            .foregroundStyle(.dark.opacity(0.7))
+                            .foregroundStyle(.gray)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                         

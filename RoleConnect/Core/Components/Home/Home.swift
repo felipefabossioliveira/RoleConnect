@@ -22,21 +22,21 @@ struct Home: View {
             VStack {
                 
                 Header(isMenuOpen: $isMenuOpen)
-                
-                SearchBar(searchText: $homeVM.searchText)
-                
+                                
                 ScrollView {
                     
                     HStack {
                         Text("Upcoming Event")
                             .fontWeight(.bold)
-                            .foregroundStyle(.darkBlue)
+                            .foregroundStyle(.white)
                             .padding(.bottom, 10)
                         
                         Spacer()
                         
                         Text("See more")
-                            .foregroundStyle(.darkPurple)
+                            .foregroundStyle(.gray)
+                            .fontWeight(.semibold)
+                            .font(.subheadline)
                         
                     }
                     .padding(.horizontal)
@@ -58,6 +58,7 @@ struct Home: View {
                 .offset(x: isMenuOpen ? 0 : -280)
                 .animation(.easeInOut, value: isMenuOpen)
         }
+        .background(Color.black)
         .sheet(isPresented: .constant(!(isConnected ?? true))){
             withAnimation(.smooth) {
                 NetworkMonitorView()
@@ -72,17 +73,19 @@ struct Home: View {
     
     @ViewBuilder
     private var PopularEvent: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
             HStack {
                 Text("Popular Event")
                     .fontWeight(.bold)
-                    .foregroundStyle(.darkBlue)
+                    .foregroundStyle(.white)
                     .padding(.bottom, 10)
                 
                 Spacer()
                 
                 Text("See more")
-                    .foregroundStyle(.darkPurple)
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                    .font(.subheadline)
                 
             }
             
@@ -90,7 +93,6 @@ struct Home: View {
                 .resizable()
                 .frame(height: 210)
                 .cornerRadius(20)
-                .shadow(color: .gray.opacity(0.7), radius: 10, y: 10)
                 .overlay(alignment: .topTrailing) {
                     VStack {
                         HStack {
@@ -102,8 +104,8 @@ struct Home: View {
                                 .foregroundStyle(.white)
                                 .frame(height: 44)
                                 .overlay {
-                                    Image(systemName: "heart")
-                                        .foregroundStyle(.gray)
+                                    Image(systemName: "heart.fill")
+                                        .foregroundStyle(.pink)
                                 }
                         }
                         .padding()
@@ -119,13 +121,24 @@ struct Home: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     HStack {
                                         Text("Ayoama Japanese")
+                                            .foregroundStyle(.dark)
                                             .fontWeight(.bold)
                                         
                                         Spacer()
                                         
-                                        Text("$60")
-                                            .fontWeight(.bold)
-                                            .foregroundStyle(.darkPurple)
+                                        HStack {
+                                            Text("Join")
+                                                .foregroundStyle(.darkPurple)
+                                                .fontWeight(.bold)
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(height: 12)
+                                                .fontWeight(.bold)
+                                                .foregroundStyle(.darkPurple)
+                                        }
+//                                        .padding(.horizontal)
                                         
                                     }
                                     

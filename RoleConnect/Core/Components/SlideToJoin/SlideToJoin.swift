@@ -63,7 +63,7 @@ struct SlideToJoin: View {
     // KnobView
     func KnobView(_ size: CGSize, progress: CGFloat, maxLimit: CGFloat) -> some View {
         Circle()
-            .fill(.white)
+            .fill(.dark)
             .padding(6)
             .frame(width: size.height, height: size.height)
             .overlay {
@@ -71,10 +71,12 @@ struct SlideToJoin: View {
                     Image(systemName: "chevron.forward.dotted.chevron.forward")
                         .opacity(1 - progress)
                         .blur(radius: progress * 10)
+                        .foregroundStyle(.white)
                     
                     Image(systemName: "checkmark")
                         .opacity(progress)
                         .blur(radius: (1 - progress) * 10)
+                        .foregroundStyle(.white)
                     
                 }
                 .font(.title3.bold())
@@ -149,10 +151,15 @@ struct SlideToJoin: View {
             Text(config.onSwipeText)
                 .opacity(isComplete ? 0 : 1)
                 .blur(radius: isComplete ? 10 : 0)
+                .foregroundStyle(.dark)
+
             
             Text(config.confirmationText)
                 .opacity(!isComplete ? 0 : 1)
                 .blur(radius: !isComplete ? 10 : 0)
+                .foregroundStyle(.dark)
+
+            
         }
         .fontWeight(.bold)
         .foregroundStyle(config.foregroundColor)
