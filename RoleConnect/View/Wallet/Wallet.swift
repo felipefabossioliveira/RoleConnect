@@ -94,7 +94,7 @@ struct Wallet: View {
                         VStack(alignment: .leading, spacing: 10) {
                             // Money Info
                             HStack(spacing: 15) {
-                                Text("$2,646.82")
+                                Text("$ 220,00")
                                     .font(.largeTitle)
                                     .fontWeight(.medium)
                                 
@@ -125,7 +125,7 @@ struct Wallet: View {
                                             .foregroundStyle(.gray)
                                         
                                         HStack {
-                                            Text("-$1,124")
+                                            Text("-$112")
                                             
                                             Text("+1.4%")
                                                 .font(.caption2)
@@ -151,7 +151,7 @@ struct Wallet: View {
                                             .foregroundStyle(.gray)
                                         
                                         HStack {
-                                            Text("-$224")
+                                            Text("-$74")
                                             
                                             Text("+1.2%")
                                                 .font(.caption2)
@@ -203,7 +203,7 @@ struct Wallet: View {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: 60, height: 60)
                 .overlay {
-                    Image("pizzaria")
+                    Image("party2")
                         .resizable()
                         .frame(width: 60, height: 60)
                 }
@@ -233,7 +233,7 @@ struct Wallet: View {
                         
             Text("-$ 85,00")
                 .fontWeight(.semibold)
-                .foregroundStyle(.red)
+                .foregroundStyle(.fbsRed)
         }
     }
 }
