@@ -94,7 +94,7 @@ struct Profile: View {
                                 .foregroundStyle(.darkPurple)
                                 .fontWeight(.bold)
                             
-                            Text("Feedbacks")
+                            Text("Reviews")
                                 .font(.caption)
                                 .foregroundStyle(.white)
                                 .fontWeight(.bold)

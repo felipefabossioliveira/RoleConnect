@@ -28,7 +28,7 @@ struct UpcomingEventDetail: View {
             VStack {
                 
                 Spacer()
-                
+        
                 EventInformations
                 
             }
@@ -83,6 +83,37 @@ struct UpcomingEventDetail: View {
                 .font(.title3)
                 .fontWeight(.bold)
             
+            HStack(alignment: .lastTextBaseline, spacing: 5) {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+                    .fontWeight(.bold)
+                
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+                    .fontWeight(.bold)
+                
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+                    .fontWeight(.bold)
+                
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+                    .fontWeight(.bold)
+                
+                Image(systemName: "star")
+                    .fontWeight(.bold)
+                
+                
+                HStack {
+                    Text("4.8 (365 Reviews)")
+                        .fontWeight(.bold)
+                        .font(.footnote)
+                }
+                .padding(.leading, 5)
+            }
+            .padding(.top, 6)
+            .padding(.bottom, 15)
+            
             HStack(spacing: 25) {
                 
                 HStack {
@@ -108,6 +139,9 @@ struct UpcomingEventDetail: View {
                 Spacer()
             }
             .font(.caption)
+            
+            // Rating Review
+            
             
             RoundedRectangle(cornerRadius: 10)
                 .fill(.clear)
@@ -164,7 +198,7 @@ struct UpcomingEventDetail: View {
                     .foregroundStyle(.gray)
                 
             }
-            .padding(.top, 25)
+            .padding(.top, 15)
             
             HStack {
                 Spacer()
@@ -173,7 +207,7 @@ struct UpcomingEventDetail: View {
                 
                 Spacer()
             }
-            .padding(.top, 30)
+            .padding(.top, 18)
             .padding(.horizontal, 6)
 
             
@@ -182,7 +216,7 @@ struct UpcomingEventDetail: View {
         .padding(.top, 30)
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
-        .frame(height: UIScreen.main.bounds.height * 0.58)
+        .frame(height: UIScreen.main.bounds.height * 0.6)
         .background(.dark)
         .cornerRadius(30)
     }

@@ -22,8 +22,8 @@ struct Home: View {
             VStack {
                 
                 Header(isMenuOpen: $isMenuOpen)
-                                
-                ScrollView {
+                
+                ScrollView(showsIndicators: false) {
                     
                     HStack {
                         Text("Upcoming Event")
@@ -33,7 +33,7 @@ struct Home: View {
                         
                         Spacer()
                         
-                        Text("See more")
+                        Text("View more")
                             .foregroundStyle(.gray)
                             .fontWeight(.semibold)
                             .font(.subheadline)
@@ -82,7 +82,7 @@ struct Home: View {
                 
                 Spacer()
                 
-                Text("See more")
+                Text("View more")
                     .foregroundStyle(.gray)
                     .fontWeight(.semibold)
                     .font(.subheadline)
@@ -138,8 +138,6 @@ struct Home: View {
                                                 .fontWeight(.bold)
                                                 .foregroundStyle(.darkPurple)
                                         }
-//                                        .padding(.horizontal)
-                                        
                                     }
                                     
                                     HStack {

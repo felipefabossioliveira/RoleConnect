@@ -29,23 +29,25 @@ struct LeadingMenu: View {
             
             GeometryReader { geo in
                 VStack(alignment: .leading, spacing: 30) {
-                    
                     menuProfileHeader
-                    
-                    menuProfileOptions
-                    
-                    menuNotificationsOptions
-                    
-                    menuAccountAndSecurityOptions
-                    
-                    menuSupportOptions
-                    
-                    internetConnection
-                    
-                    Spacer()
-                    
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 30) {
+                            
+                            
+                            menuProfileOptions
+                            
+                            menuNotificationsOptions
+                            
+                            menuAccountAndSecurityOptions
+                            
+                            menuSupportOptions
+                            
+                            internetConnection
+                        }
+                    }
                 }
                 .padding(.top, 20)
+                .padding(.bottom, 10)
                 .padding(.horizontal)
                 .padding(.trailing, 12)
                 .frame(width: 280, height: .infinity)

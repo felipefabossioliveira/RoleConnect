@@ -14,8 +14,11 @@ struct Header: View {
             Color.black.edgesIgnoringSafeArea(.top)
             
             VStack(alignment: .leading, spacing: 20) {
-    
-                    menuAndProfile
+                
+                menuAndProfile
+                    .onTapGesture {
+                        coordinator.push(.profile)
+                    }
                 
                 VStack(alignment: .leading, spacing: 20) {
                     

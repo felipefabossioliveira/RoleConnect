@@ -18,7 +18,7 @@ struct SearchBar: View {
                 placeholder: "Search...",
                 placeholderColor: .lightPurple,
                 keyboardType: .asciiCapable,
-                tintColor: .purple,
+                tintColor: .darkPurple,
                 foregroundColor: .lightPurple,
                 fontWeight: .bold,
                 autocorrectionDisabled: true
@@ -55,7 +55,9 @@ struct SearchBar: View {
 }
 
 struct CustomTextField: UIViewRepresentable {
+    
     @Binding var text: String
+    
     let placeholder: String
     let placeholderColor: UIColor
     let keyboardType: UIKeyboardType
