@@ -1,4 +1,4 @@
-# Aplicativo de Eventos Internos da Empresa
+# Aplicativo Rolê Connect
 
 ## Sobre o Aplicativo
 
