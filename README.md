@@ -22,14 +22,14 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 
 # Interfaces/Funcionalidades
 
-## 1. Tela de Login/Registro
+## 1. Tela de Login/Registro (MVP)
 📌 **Objetivo:** Autenticar o usuário com as credenciais da empresa.
 
 🔹 **Componentes:**
 - Login com e-mail corporativo
 - Integração com sistema de autenticação da empresa (SSO)
 
-## 2. Tela Inicial (Dashboard)
+## 2. Tela Inicial (Dashboard) (MVP)
 📌 **Objetivo:** Exibir uma visão geral dos eventos próximos e opções principais.
 
 🔹 **Componentes:**
@@ -38,7 +38,7 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Saldo disponível do budget mensal (R$ 220)
 - Notificações de novos eventos ou atualizações
 
-## 3. Tela de Criação de Evento
+## 3. Tela de Criação de Evento (MVP)
 📌 **Objetivo:** Permitir que qualquer funcionário crie um novo evento.
 
 🔹 **Componentes:**
@@ -52,7 +52,7 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Descrição do evento
 - Tags (ex: jantar, happy hour, esporte)
 
-## 4. Tela de Detalhes do Evento
+## 4. Tela de Detalhes do Evento (MVP)
 📌 **Objetivo:** Mostrar todas as informações sobre um evento específico.
 
 🔹 **Componentes:**
@@ -63,7 +63,7 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Chat do evento para comunicação entre participantes
 - Opção de cancelar participação
 
-## 4.1 Tela Eventos em Lista
+## 4.1 Tela Eventos em Lista (MVP)
 📌 **Objetivo:** Mostrar todos os eventos em formato de lista
 
 🔹 **Componentes:**
@@ -71,7 +71,7 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Filtros (Indefinidos)
 - Lista de eveventos
 
-## 5. Tela de Gerenciamento de Budget
+## 5. Tela de Gerenciamento de Budget (MVP)
 📌 **Objetivo:** Permitir que os usuários acompanhem seu orçamento mensal para eventos.
 
 🔹 **Componentes:**
@@ -80,7 +80,7 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Previsão de gastos futuros (baseado em eventos confirmados)
 - Gráfico de utilização do budget ao longo do mês
 
-## 6. Tela de Caronas
+## 6. Tela de Caronas (MVP)?
 📌 **Objetivo:** Facilitar a organização de caronas para os eventos.
 
 🔹 **Componentes:**
@@ -114,17 +114,6 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Lembretes de eventos próximos
 - Alertas de mudanças em eventos (local, horário, etc.)
 - Notificações de confirmações de carona
-
-## 10. Painel de Administração (para RH ou organizadores principais)
-📌 **Objetivo:** Permitir uma visão geral e gestão de todos os eventos.
-
-🔹 **Componentes:**
-- Visão geral de todos os eventos
-- Relatórios de participação
-- Gestão de orçamentos
-- Opção de destacar eventos importantes
-
-Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compartilhar fotos de eventos específicos. Isso ajudará a criar memórias e aumentar o engajamento dos funcionários. Vou incluir uma nova seção no documento para cobrir essa funcionalidade:
 
 ## 11. Galeria de Fotos do Evento
 📌 **Objetivo:** Permitir que os participantes compartilhem e visualizem fotos de eventos específicos.
@@ -185,7 +174,7 @@ Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compart
 - Botão de "Fazer Reserva" diretamente na página do evento
 - Confirmação automática da reserva para todos os participantes
 
-## 14. Split de Conta Automático
+## 14. Split de Conta Automático (MVP)
 📌 **Objetivo:** Facilitar a divisão de despesas após os eventos.
 
 🔹 **Componentes:**
@@ -193,7 +182,7 @@ Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compart
 - Cálculo automático da divisão baseado no consumo de cada um
 - Histórico de despesas por evento
 
-## 15. Enquetes Pós-Evento
+## 15. Enquetes Pós-Evento 
 📌 **Objetivo:** Coletar feedback para melhorar futuros eventos.
 
 🔹 **Componentes:**
@@ -229,25 +218,7 @@ Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compart
 - Opção de definir preferências manualmente (tipos de comida, atividades)
 - Notificações personalizadas para eventos recomendados
 
-## 19. Check-in no Local
-📌 **Objetivo:** Confirmar presença e facilitar o início dos eventos.
-
-🔹 **Componentes:**
-- Botão de check-in disponível apenas na localização do evento
-- Registro de horário de chegada
-- Lista de participantes presentes para o organizador
-- Notificação para participantes atrasados
-
-## 20. Mini-Jogos e Quiz
-📌 **Objetivo:** Aumentar o engajamento e a interação durante os eventos.
-
-🔹 **Componentes:**
-- Quiz temáticos relacionados ao evento ou à empresa
-- Jogos rápidos para momentos de espera (ex: durante o pedido em um restaurante)
-- Placar de líderes para jogos competitivos
-- Opção de criar jogos personalizados para team building
-
-## 21. Seção "Ideias para Eventos"
+## 21. Seção "Ideias para Eventos" (MVP)?
 📌 **Objetivo:** Permitir que funcionários sugiram e votem em novos tipos de eventos.
 
 🔹 **Componentes:**
@@ -255,15 +226,6 @@ Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compart
 - Sistema de votação para ideias populares
 - Categorização de ideias (esportes, cultura, gastronomia, etc.)
 - Notificação para criadores quando suas ideias são escolhidas
-
-## 22. Grupos para Eventos Competitivos
-📌 **Objetivo:** Facilitar a organização de eventos em equipe ou competições.
-
-🔹 **Componentes:**
-- Criação de equipes para eventos específicos
-- Painel de gerenciamento de equipe para capitães
-- Placar para eventos competitivos
--Chat de grupo para membros da equipe
 
 ## 23. Feedback Anônimo
 📌 **Objetivo:** Permitir comentários sinceros sobre eventos ou discussões sensíveis.
@@ -275,7 +237,7 @@ Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compart
 - Relatórios agregados para organizadores, mantendo o anonimato individual
 - 
 
-## 24. Dashboard de Gerência
+## 24. Dashboard de Gerência (MVPZÃO)
 📌 **Objetivo:** Fornecer uma visão geral abrangente para a equipe de gerência sobre o uso do aplicativo e o engajamento dos funcionários em eventos. Tendo a possibilidade de exportar para CSV / Excel wathever.
 
 🔹 **Componentes:**
