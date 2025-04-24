@@ -10,13 +10,15 @@ import SwiftUI
 struct Wallet: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
-    
+     
     var body: some View {
         VStack(spacing: 30) {
             
             header
             
             walletBudgetInfo
+            
+            walletSubMessage
             
             walletRecentTransactions
             
@@ -62,13 +64,47 @@ struct Wallet: View {
     }
     
     @ViewBuilder
+    private var walletSubMessage: some View {
+        VStack(spacing: 5) {
+            Rectangle()
+                .fill(.greyish)
+                .frame(maxHeight: 70)
+                .overlay(content: {
+                    VStack {
+                        
+                        HStack {
+                            
+                            Image(systemName: "info.circle")
+                                .foregroundStyle(.blue)
+                            
+                            Text("The Budget available is not cumulative!")
+                                .foregroundStyle(.white)
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                        }
+                        
+                        Text("It will reset every month.")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                    }
+                })
+                .clipShape(
+                    CustomRoundedShape(topLeftRadius: 0, topRightRadius: 0, bottomLeftRadius: 20, bottomRightRadius: 20)
+                )
+        }
+        .padding(.top, -29)
+        .padding(.horizontal)
+        
+    }
+    
+    @ViewBuilder
     private var walletBudgetInfo: some View {
         VStack {
-            RoundedRectangle(cornerRadius: 20)
+            Rectangle()
                 .fill(.dark)
-                .frame(maxHeight: 260)
+                .frame(height: 250)
                 .overlay(alignment: .topLeading) {
-                    VStack(alignment: .leading, spacing: 25) {
+                    VStack(alignment: .leading, spacing: 30) {
                         
                         // Top
                         HStack(spacing: 20) {
@@ -91,7 +127,7 @@ struct Wallet: View {
                         }
                         
                         
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 6) {
                             // Money Info
                             HStack(spacing: 15) {
                                 Text("$ 220,00")
@@ -165,9 +201,11 @@ struct Wallet: View {
                                 .padding([.top, .bottom])
                                 .padding(.horizontal, 25)
                             }
+                            .frame(maxHeight: 70)
                     }
                     .padding(20)
                 }
+                .clipShape(CustomRoundedShape(topLeftRadius: 20, topRightRadius: 20, bottomLeftRadius: 0, bottomRightRadius: 0))
         }
         .padding(.horizontal)
     }
@@ -209,25 +247,39 @@ struct Wallet: View {
                 }
                 .clipShape(.rect(cornerRadius: 10))
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text("Mamma Jamma, Pizzaria")
                     .font(.caption)
                     .fontWeight(.semibold)
             
-                    HStack(spacing: 10) {
+                    HStack(spacing: 5) {
+                        
+                        Image(systemName: "calendar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 10, height: 10)
                    
-                        Text("23/04/2025")
-                            .font(.caption)
-                            .foregroundStyle(.gray)
-                      
-                        Text("13:15 PM")
+                        Text("Apr 23")
                             .font(.caption)
                             .foregroundStyle(.gray)
                         
                     }
                     .fontWeight(.semibold)
+                
+                HStack(spacing: 5) {
+                    
+                    Image(systemName: "clock")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 10, height: 10)
+                    
+                    Text("13:15")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                }
+                .fontWeight(.semibold)
             }
-            .padding(.leading, 10)
+            .padding(.leading, 5)
             
             Spacer()
                         

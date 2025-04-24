@@ -29,5 +29,4 @@ class UpcomingEventViewModel: ObservableObject {
             isLoading = false
         }
     }
-    
 }

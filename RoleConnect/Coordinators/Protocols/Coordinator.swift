@@ -8,8 +8,11 @@
 import SwiftUI
 
 protocol Coordinator: ObservableObject {
+    
     associatedtype Route
+    
     var navigationPath: NavigationPath { get set }
+    
     func push(_ route: Route)
     func pop()
     func popToRoot()

@@ -93,45 +93,6 @@ struct EventListItem: View {
     }
 }
 
-struct TopRoundedRectangle: Shape {
-    let cornerRadius: CGFloat
-    
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        
-        let width = rect.size.width
-        let height = rect.size.height
-        let radius = min(cornerRadius, min(width, height) / 2)
-        
-        path.move(to: CGPoint(x: 0, y: radius))
-        
-        path.addArc(
-            center: CGPoint(x: radius, y: radius),
-            radius: radius,
-            startAngle: Angle(degrees: 180),
-            endAngle: Angle(degrees: 270),
-            clockwise: false
-        )
-        
-        path.addLine(to: CGPoint(x: width - radius, y: 0))
-        
-        path.addArc(
-            center: CGPoint(x: width - radius, y: radius),
-            radius: radius,
-            startAngle: Angle(degrees: -90),
-            endAngle: Angle(degrees: 0),
-            clockwise: false
-        )
-        
-        path.addLine(to: CGPoint(x: width, y: height))
-        
-        path.addLine(to: CGPoint(x: 0, y: height))
-        
-        path.closeSubpath()
-        
-        return path
-    }
-}
 
 #Preview {
     UpcomingEventList()

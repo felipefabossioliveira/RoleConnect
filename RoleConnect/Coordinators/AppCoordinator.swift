@@ -35,7 +35,7 @@ class AppCoordinator: ObservableObject {
         case .home: Home()
             
         case .detail: UpcomingEventDetail()
-    
+            
         case .profile: Profile()
             
         case .wallet: Wallet()

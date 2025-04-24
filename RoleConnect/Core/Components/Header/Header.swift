@@ -16,6 +16,7 @@ struct Header: View {
             VStack(alignment: .leading, spacing: 20) {
                 
                 menuAndProfile
+                    .padding(.horizontal, 5)
                     .onTapGesture {
                         coordinator.push(.profile)
                     }
