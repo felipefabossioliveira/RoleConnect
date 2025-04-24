@@ -33,6 +33,7 @@ O aplicativo será desenvolvido utilizando tecnologias modernas para garantir um
 - Nome do evento
 - Data e hora
 - Local (com integração de mapa)
+- Imagem (Serão oferecidos algumas imagens geradas por IA)
 - Limite de participantes
 - Orçamento por pessoa
 - Opção para oferecer ou solicitar carona
@@ -110,3 +111,153 @@ O aplicativo será desenvolvido utilizando tecnologias modernas para garantir um
 - Relatórios de participação
 - Gestão de orçamentos
 - Opção de destacar eventos importantes
+
+Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compartilhar fotos de eventos específicos. Isso ajudará a criar memórias e aumentar o engajamento dos funcionários. Vou incluir uma nova seção no documento para cobrir essa funcionalidade:
+
+## 11. Galeria de Fotos do Evento
+📌 **Objetivo:** Permitir que os participantes compartilhem e visualizem fotos de eventos específicos.
+
+🔹 **Componentes:**
+- **Upload de Fotos**: 
+  - Botão para carregar fotos diretamente do dispositivo
+  - Opção de tirar foto na hora e fazer upload
+  - Possibilidade de adicionar legendas às fotos
+
+- **Visualização de Galeria**:
+  - Grade de miniaturas das fotos do evento
+  - Opção de visualização em tela cheia
+  - Funcionalidade de slideshow
+
+- **Organização das Fotos**:
+  - Agrupamento automático por evento
+  - Tags para categorizar fotos (ex: "comida", "grupo", "decoração")
+  - Ordenação por data de upload ou por popularidade
+
+- **Interação Social**:
+  - Opção de curtir fotos
+  - Espaço para comentários em cada foto
+  - Possibilidade de marcar colegas nas fotos
+
+- **Privacidade e Compartilhamento**:
+  - Configurações de privacidade (visível apenas para participantes do evento ou para toda a empresa)
+  - Opção de compartilhar fotos específicas em outras redes sociais ou por e-mail
+  - Funcionalidade para solicitar aprovação antes de publicar fotos com outras pessoas
+
+- **Gerenciamento de Armazenamento**:
+  - Indicador de espaço usado/disponível para fotos
+  - Opção de compressão automática para otimizar o armazenamento
+  - Possibilidade de fazer download de todas as fotos do evento em um arquivo zip
+
+- **Destaques e Álbuns**:
+  - Criação de álbuns temáticos dentro do evento
+  - Seleção de fotos em destaque para a página principal do evento
+
+- **Integração com Tela de Detalhes do Evento**:
+  - Miniatura da galeria na tela de detalhes do evento
+  - Link direto para a galeria completa
+
+## 12. Sistema de Votação
+📌 **Objetivo:** Facilitar decisões de grupo para eventos futuros.
+
+🔹 **Componentes:**
+- Criação de enquetes para escolha de local, data ou tipo de evento
+- Opções de votação anônima ou aberta
+- Visualização em tempo real dos resultados
+- Notificação automática quando a votação é encerrada
+
+## 13. Integração com Sistemas de Reserva
+📌 **Objetivo:** Simplificar o processo de reserva em restaurantes ou locais de eventos.
+
+🔹 **Componentes:**
+- Integração com APIs de serviços de reserva populares
+- Botão de "Fazer Reserva" diretamente na página do evento
+- Confirmação automática da reserva para todos os participantes
+
+## 14. Split de Conta Automático
+📌 **Objetivo:** Facilitar a divisão de despesas após os eventos.
+
+🔹 **Componentes:**
+- Entrada de valores gastos individualmente
+- Cálculo automático da divisão baseado no consumo de cada um
+- Histórico de despesas por evento
+
+## 15. Enquetes Pós-Evento
+📌 **Objetivo:** Coletar feedback para melhorar futuros eventos.
+
+🔹 **Componentes:**
+- Formulário personalizado de feedback
+- Avaliação por estrelas para diferentes aspectos do evento
+- Espaço para sugestões e comentários
+- Análise e relatórios de satisfação para organizadores
+
+## 16. Sistema de Badges e Recompensas
+📌 **Objetivo:** Incentivar participação ativa e organização de eventos.
+
+🔹 **Componentes:**
+- Badges para diferentes conquistas (ex: "Organizador do Mês", "Participante Frequente")
+- Sistema de pontos baseado em participação e organização
+- Ranking de funcionários mais ativos
+- Recompensas exclusivas para top participantes (ex: escolha prioritária no próximo evento)
+
+## 17. Calendário Integrado
+📌 **Objetivo:** Facilitar o planejamento e visualização de eventos futuros.
+
+🔹 **Componentes:**
+- Visualização de calendário com todos os eventos programados
+- Opção de sincronização com calendários pessoais (Google, Outlook)
+- Filtros por tipo de evento, departamento ou organizador
+- Lembretes personalizáveis para eventos
+
+## 18. Recomendações Personalizadas
+📌 **Objetivo:** Sugerir eventos relevantes com base nas preferências do usuário.
+
+🔹 **Componentes:**
+- Algoritmo de recomendação baseado em histórico de participação
+- Sugestões de eventos similares aos favoritos do usuário
+- Opção de definir preferências manualmente (tipos de comida, atividades)
+- Notificações personalizadas para eventos recomendados
+
+## 19. Check-in no Local
+📌 **Objetivo:** Confirmar presença e facilitar o início dos eventos.
+
+🔹 **Componentes:**
+- Botão de check-in disponível apenas na localização do evento
+- Registro de horário de chegada
+- Lista de participantes presentes para o organizador
+- Notificação para participantes atrasados
+
+## 20. Mini-Jogos e Quiz
+📌 **Objetivo:** Aumentar o engajamento e a interação durante os eventos.
+
+🔹 **Componentes:**
+- Quiz temáticos relacionados ao evento ou à empresa
+- Jogos rápidos para momentos de espera (ex: durante o pedido em um restaurante)
+- Placar de líderes para jogos competitivos
+- Opção de criar jogos personalizados para team building
+
+## 21. Seção "Ideias para Eventos"
+📌 **Objetivo:** Permitir que funcionários sugiram e votem em novos tipos de eventos.
+
+🔹 **Componentes:**
+- Formulário para submissão de ideias de eventos
+- Sistema de votação para ideias populares
+- Categorização de ideias (esportes, cultura, gastronomia, etc.)
+- Notificação para criadores quando suas ideias são escolhidas
+
+## 22. Grupos para Eventos Competitivos
+📌 **Objetivo:** Facilitar a organização de eventos em equipe ou competições.
+
+🔹 **Componentes:**
+- Criação de equipes para eventos específicos
+- Painel de gerenciamento de equipe para capitães
+- Placar para eventos competitivos
+-Chat de grupo para membros da equipe
+
+## 23. Feedback Anônimo
+📌 **Objetivo:** Permitir comentários sinceros sobre eventos ou discussões sensíveis.
+
+🔹 **Componentes:**
+- Opção de envio de feedback anônimo após eventos
+- Garantia de anonimato na interface
+- Análise de sentimentos para feedbacks recebidos
+- Relatórios agregados para organizadores, mantendo o anonimato individual
