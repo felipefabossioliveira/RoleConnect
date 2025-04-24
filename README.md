@@ -1,5 +1,9 @@
 # Aplicativo Rolê Connect
 
+# Nome do time 
+
+**Stormtrooper's**
+
 ## Sobre o Aplicativo
 
 Este aplicativo é uma solução personalizada para gerenciar eventos internos da empresa, como idas a restaurantes, e demais eventos sociais. O app centraliza a organização, permitindo que os funcionários criem, participem e gerenciem eventos de forma eficiente.
