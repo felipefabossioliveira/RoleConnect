@@ -261,3 +261,52 @@ Excelente sugestão! Vamos adicionar uma funcionalidade para armazenar e compart
 - Garantia de anonimato na interface
 - Análise de sentimentos para feedbacks recebidos
 - Relatórios agregados para organizadores, mantendo o anonimato individual
+- 
+
+## 24. Dashboard de Gerência
+📌 **Objetivo:** Fornecer uma visão geral abrangente para a equipe de gerência sobre o uso do aplicativo e o engajamento dos funcionários em eventos. Tendo a possibilidade de exportar para CSV / Excel wathever.
+
+🔹 **Componentes:**
+
+### Visão Geral Financeira
+- **Gasto Total Mensal**: Gráfico mostrando gastos totais por mês
+- **Comparação de Orçamento**: Gastos reais vs. orçamento planejado
+- **Gasto Médio por Evento**: Análise de custos por tipo de evento
+- **Utilização do Budget Individual**: Porcentagem média de utilização do orçamento mensal por funcionário
+
+### Métricas de Participação
+- **Total de Eventos**: Número de eventos realizados por mês/trimestre
+- **Taxa de Participação**: Porcentagem de funcionários participando em eventos
+- **Eventos Mais Populares**: Ranking dos eventos com maior participação
+- **Frequência de Participação**: Gráfico mostrando quantos eventos em média cada funcionário participa
+
+### Análise de Engajamento
+- **Criadores de Eventos Mais Ativos**: Top funcionários que organizam eventos
+- **Departamentos Mais Engajados**: Ranking de departamentos por participação em eventos
+- **Tendências de Tipos de Eventos**: Gráfico mostrando popularidade de diferentes categorias de eventos ao longo do tempo
+
+### Feedback e Satisfação
+- **Nota Média de Satisfação**: Pontuação geral dos eventos baseada em feedbacks
+- **Análise de Sentimento**: Visão geral do sentimento dos comentários (positivo, neutro, negativo)
+- **Sugestões Mais Votadas**: Top ideias para novos eventos da seção "Ideias para Eventos"
+
+### Uso do Aplicativo
+- **Usuários Ativos**: Número de usuários ativos diários/mensais
+- **Funcionalidades Mais Utilizadas**: Ranking das features mais populares do app
+- **Tempo Médio de Uso**: Duração média das sessões no aplicativo
+
+### Relatórios Personalizáveis
+- **Filtros por Data**: Capacidade de visualizar dados em diferentes períodos
+- **Filtros por Departamento**: Análise segmentada por departamentos específicos
+- **Exportação de Dados**: Opção para exportar relatórios em diferentes formatos (PDF, Excel)
+
+### Alertas e Notificações
+- **Alertas de Orçamento**: Notificações quando o gasto se aproxima ou excede o limite
+- **Flags de Baixo Engajamento**: Alertas para departamentos ou indivíduos com participação decrescente
+- **Lembretes de Revisão**: Notificações para revisar eventos com feedback negativo
+
+🔹 **Recursos Adicionais:**
+- Painéis customizáveis para diferentes níveis de gerência
+- Visualizações interativas com drill-down para análises mais detalhadas
+- Opção de configurar relatórios automáticos enviados por e-mail
+- Integração com outras ferramentas de BI da empresa, se aplicável
