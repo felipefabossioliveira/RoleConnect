@@ -89,7 +89,11 @@ struct Wallet: View {
                     }
                 })
                 .clipShape(
-                    CustomRoundedShape(topLeftRadius: 0, topRightRadius: 0, bottomLeftRadius: 20, bottomRightRadius: 20)
+                    CustomRoundedShape(
+                        topLeftRadius: 0,
+                        topRightRadius: 0,
+                        bottomLeftRadius: 20,
+                        bottomRightRadius: 20)
                 )
         }
         .padding(.top, -29)
