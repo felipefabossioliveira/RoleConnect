@@ -1,4 +1,4 @@
-# MVP do Aplicativo de Eventos Internos
+# MVP Aplicativo de Eventos Internos
 
 ## 1. Autenticação e Perfil de Usuário
 📌 **Objetivo:** Permitir acesso seguro e personalizado ao aplicativo.
