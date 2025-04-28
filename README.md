@@ -10,15 +10,15 @@ O aplicativo será desenvolvido utilizando tecnologias modernas para garantir um
 
 # Nome do time 
 
-**Stormtrooper's**
+**Ghostwalker's**
 
 Inicialmente, são como fantasmas no sistema - uma presença etérea, sem um time definitivo, navegando pelo desconhecido da hierarquia corporativa. Enquanto aguardam a chegada da tão esperada 'máquina' (seja lá quanto tempo for!), esta equipe não fica parada no limbo organizacional.
 
-Ao contrário, os Stormtrooper's se materializam como um time de desenvolvimento altamente adaptável e focado em aprendizado ágil. Sua missão? Criar aplicativos inovadores que simplificarão drasticamente a vida de todos na empresa.
+Ao contrário, os Ghostwalker's se materializam como um time de desenvolvimento altamente adaptável e focado em aprendizado ágil. Sua missão? Criar aplicativos inovadores que simplificarão drasticamente a vida de todos na empresa.
 
 Com a agilidade de um Jedi e a capacidade de se adaptar como verdadeiros fantasmas, eles se movem rapidamente entre projetos, deixando para trás soluções brilhantes antes de desaparecer para sua próxima aventura digital.
 
-Embora sua permanência em cada projeto seja tão breve quanto um holograma de R2-D2, o impacto de suas entregas é tão duradouro quanto a Força. Prontos para enfrentar qualquer desafio de codificação, os Stormtrooper's são os heróis não celebrados do desenvolvimento interno, transformando ideias em realidade digital com a velocidade da luz.
+Embora sua permanência em cada projeto seja tão breve quanto um holograma de R2-D2, o impacto de suas entregas é tão duradouro quanto a Força. Prontos para enfrentar qualquer desafio de codificação, os Ghostwalker's são os heróis não celebrados do desenvolvimento interno, transformando ideias em realidade digital com a velocidade da luz.
 
 # Interfaces/Funcionalidades
 
