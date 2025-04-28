@@ -12,6 +12,8 @@ struct Home: View {
     @StateObject private var homeVM = HomeViewModel()
     @StateObject private var eventListVM = UpcomingEventViewModel()
     
+    @State private var viewDetail: Bool = false
+    
     @Environment(\.isNetworkConnected) private var isConnected
     
     @State private var isMenuOpen = false
@@ -37,6 +39,12 @@ struct Home: View {
                             .foregroundStyle(.gray)
                             .fontWeight(.semibold)
                             .font(.subheadline)
+                            .onTapGesture {
+                                viewDetail.toggle()
+                            }
+                            .sheet(isPresented: $viewDetail) {
+                                ViewMoreEvents()
+                            }
                         
                     }
                     .padding(.horizontal)

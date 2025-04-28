@@ -15,7 +15,7 @@ struct SearchBar: View {
         HStack {
             CustomTextField(
                 text: $searchText,
-                placeholder: "Search...",
+                placeholder: "Search Events",
                 placeholderColor: .lightPurple,
                 keyboardType: .asciiCapable,
                 tintColor: .darkPurple,
@@ -36,17 +36,21 @@ struct SearchBar: View {
             }
             
             
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.white)
-                .frame(width: 45, height: 45)
-                .overlay {
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 20)
-                        .fontWeight(.medium)
-                        .foregroundStyle(.greyish.opacity(0.7))
-                }
+            HStack(spacing: 10) {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.white)
+                    .frame(width: 45, height: 45)
+                    .overlay {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 20)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.greyish.opacity(0.7))
+                    }
+                
+                NewEventButtonView()
+            }
             
         }
         .frame(height: 60)

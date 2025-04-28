@@ -13,13 +13,10 @@ struct Header: View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.top)
             
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 30) {
                 
                 menuAndProfile
                     .padding(.horizontal, 5)
-                    .onTapGesture {
-                        coordinator.push(.profile)
-                    }
                 
                 VStack(alignment: .leading, spacing: 20) {
                     
@@ -28,12 +25,11 @@ struct Header: View {
                         .font(.title3)
                         .fontWeight(.semibold)
                     
-                    Text("Find the amazing events made \nspecially for you.")
+                    Text("Find or Create amazing events.")
                         .foregroundStyle(.white)
                         .font(.title3)
                         .fontWeight(.bold)
                     
-                    Spacer()
                     
                     SearchBar(searchText: $homeVM.searchText)
                     
@@ -64,6 +60,14 @@ struct Header: View {
             
             Spacer()
             
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 30)
+                .foregroundStyle(Color("redlogo"))
+            
+            Spacer()
+            
             HStack(alignment: .lastTextBaseline, spacing: 0) {
                 
                 Circle()
@@ -86,6 +90,9 @@ struct Header: View {
                             .foregroundStyle(.greenStatus)
                             .offset(x: -30)
                     }
+            }
+            .onTapGesture {
+                coordinator.push(.profile)
             }
         }
     }
