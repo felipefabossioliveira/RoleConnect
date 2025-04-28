@@ -16,10 +16,15 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(alignment: .leading, spacing: 24) {
             monthNavigationView
             weekdaysView
             monthGrid
+            
+            Text("All Events")
+                .fontWeight(.bold)
+                .font(.title3)
+            
             EventsList
         }
 
@@ -260,8 +265,9 @@ struct EventB: Identifiable {
     
     static let events: [EventB] = [
         EventB(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
-        EventB(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
         EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Ayoama, Japanese Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-23")!, title: "Nova Bar, Choperia"),
+        EventB(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
         EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Bulhadi, Japanese Restaurant"),
         EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Arabe Pararan, Arabic Restaurant"),
         EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Shubau, Restaurant"),
