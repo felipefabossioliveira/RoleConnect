@@ -20,7 +20,10 @@ struct CalendarView: View {
             monthNavigationView
             weekdaysView
             monthGrid
+            EventsList
         }
+
+        Spacer()
     }
     
     var monthGrid: some View {
@@ -33,23 +36,19 @@ struct CalendarView: View {
                     DayCell(
                         date: date,
                         viewModel: viewModel,
-                        eventsForDay: Event.events.filter {
+                        eventsForDay: EventB.events.filter {
                             viewModel.calendar.isDate($0.date, inSameDayAs: date)
                         }
                     )
                 }
             }
-            
-            EventsList
-            
-            Spacer()
         }
     }
     
     struct DayCell: View {
         let date: Date
         let viewModel: EventCalendarViewModel
-        let eventsForDay: [Event]
+        let eventsForDay: [EventB]
         
         var body: some View {
             let isCurrentMonth = viewModel.calendar.isDate(date, equalTo: viewModel.displayedMonth, toGranularity: .month)
@@ -124,8 +123,8 @@ struct CalendarView: View {
     
     var EventsList: some View {
         VStack {
-            let visibleEvents = viewModel.selectedDate != nil ? Event.events.filter {
-                viewModel.calendar.isDate($0.date, inSameDayAs: viewModel.selectedDate!) } : Event.events
+            let visibleEvents = viewModel.selectedDate != nil ? EventB.events.filter {
+                viewModel.calendar.isDate($0.date, inSameDayAs: viewModel.selectedDate!) } : EventB.events
             
             if visibleEvents.isEmpty {
                 Text("No Events for this day.")
@@ -135,12 +134,7 @@ struct CalendarView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack (spacing: 20) {
                         ForEach(visibleEvents) { event in
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.dark)
-                                .frame(height: 80)
-                                .overlay {
-                                    Text(event.title)
-                                }
+                            EventItem(item: event)
                         }
                     }
                 }
@@ -148,6 +142,7 @@ struct CalendarView: View {
             
         }
     }
+
     
     func weekdayCell(for index: Int) -> some View {
         Text(viewModel.weekdays[index])
@@ -160,11 +155,99 @@ struct CalendarView: View {
                 in: RoundedRectangle(cornerRadius: 8)
             )
     }
-    
-    
+
 }
 
-struct Event: Identifiable {
+struct EventItem: View {
+     
+    let item: EventB
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .fill(.dark)
+            .frame(width: .infinity, height: 100)
+            .overlay {
+                HStack {
+                    Image("pizzaria")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 70)
+                        .clipShape(CustomRoundedShape(topLeftRadius: 20, topRightRadius: 20, bottomLeftRadius: 20, bottomRightRadius: 20))
+                    
+                    VStack(alignment: .leading) {
+                        Text(item.title)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                        
+                        HStack(alignment: .lastTextBaseline, spacing: 5) {
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 10)
+                                .foregroundStyle(.yellow)
+                                .fontWeight(.bold)
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 10)
+                                .foregroundStyle(.yellow)
+                                .fontWeight(.bold)
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 10)
+                                .foregroundStyle(.yellow)
+                                .fontWeight(.bold)
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 10)
+                                .foregroundStyle(.yellow)
+                                .fontWeight(.bold)
+                            Image(systemName: "star")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 10)
+                                .foregroundStyle(.yellow)
+                                .fontWeight(.bold)
+                        
+                            
+                            HStack {
+                                Text("4.8")
+                                    .fontWeight(.medium)
+                                    .font(.caption)
+                            }
+                        }
+                        
+                        Text("April 28 2025")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.gray)
+                    }
+                    
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("Join")
+                            .font(.subheadline)
+                            .foregroundStyle(.darkPurple)
+                            .fontWeight(.bold)
+                        
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 10)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.darkPurple)
+                    }
+                }
+                .padding(.horizontal)
+            }
+    }
+}
+
+struct EventB: Identifiable {
     let id = UUID()
     let date: Date
     let title: String
@@ -175,20 +258,20 @@ struct Event: Identifiable {
         return formatter
     }()
     
-    static let events: [Event] = [
-        Event(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-26")!, title: "Ayoama, Japanese Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-26")!, title: "Bulhadi, Japanese Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-26")!, title: "Arabe Pararan, Arabic Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-26")!, title: "Shubau, Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-24")!, title: "Bom Beef, Churrascaria"),
-        Event(date: dateFormatter.date(from: "2025-04-23")!, title: "Nova Bar, Choperia"),
-        Event(date: dateFormatter.date(from: "2025-04-22")!, title: "Restaurante20, Espetinho"),
-        Event(date: dateFormatter.date(from: "2025-04-20")!, title: "Zé da Manga, Ahhh"),
-        Event(date: dateFormatter.date(from: "2025-04-18")!, title: "Mamma Jamma, Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-12")!, title: "Mamma Jamma, Restaurant"),
-        Event(date: dateFormatter.date(from: "2025-04-15")!, title: "Mamma Jamma, Restaurant"),
+    static let events: [EventB] = [
+        EventB(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-27")!, title: "Mamma Jamma, Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Ayoama, Japanese Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Bulhadi, Japanese Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Arabe Pararan, Arabic Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-26")!, title: "Shubau, Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-24")!, title: "Bom Beef, Churrascaria"),
+        EventB(date: dateFormatter.date(from: "2025-04-23")!, title: "Nova Bar, Choperia"),
+        EventB(date: dateFormatter.date(from: "2025-04-22")!, title: "Restaurante20, Espetinho"),
+        EventB(date: dateFormatter.date(from: "2025-04-20")!, title: "Zé da Manga, Ahhh"),
+        EventB(date: dateFormatter.date(from: "2025-04-18")!, title: "Mamma Jamma, Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-12")!, title: "Mamma Jamma, Restaurant"),
+        EventB(date: dateFormatter.date(from: "2025-04-15")!, title: "Mamma Jamma, Restaurant"),
     ]
 }
 
