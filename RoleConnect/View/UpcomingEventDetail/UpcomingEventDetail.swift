@@ -11,6 +11,7 @@ struct UpcomingEventDetail: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
     
+    @State private var showCarpoolView: Bool = false
     
     let config = SlideToJoin.Config(
         idleText: "Swipe to Join",
@@ -28,7 +29,7 @@ struct UpcomingEventDetail: View {
             VStack {
                 
                 Spacer()
-        
+                
                 EventInformations
                 
             }
@@ -140,9 +141,6 @@ struct UpcomingEventDetail: View {
             }
             .font(.caption)
             
-            // Rating Review
-            
-            
             RoundedRectangle(cornerRadius: 10)
                 .fill(.clear)
                 .stroke(.gray.opacity(0.4), lineWidth: 1)
@@ -155,7 +153,7 @@ struct UpcomingEventDetail: View {
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
-                            Participants(showJoin: false, height: 30, circleHeight: 35)                        }
+                            Participants(showJoin: false, height: 30, circleHeight: 35, QuantityJoined:10)                        }
                         .padding(.top, 20)
                         
                         Spacer()
@@ -188,17 +186,59 @@ struct UpcomingEventDetail: View {
             
             VStack(alignment: .leading, spacing: 12) {
                 
-                Text("About Event")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                
-                Text("After many years, we're finally coming back to South East Asia! Your love and support for our band since day 1 has never gone unnoticed and we can't wait to see all of your beautiful faces again.")
-                    .font(.subheadline)
-                    .multilineTextAlignment(.leading)
-                    .foregroundStyle(.gray)
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.clear)
+                    .stroke(.gray.opacity(0.4), lineWidth: 1)
+                    .frame(height: 90)
+                    .overlay(alignment: .leading) {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text("Carpool Now")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                    }
+                                    
+                                    HStack {
+                                        Text("3 cars available")
+                                            .foregroundStyle(.gray)
+                                            .fontWeight(.medium)
+                                        
+                                        Circle()
+                                            .frame(height: 10)
+                                            .foregroundStyle(.white)
+                                            .offset(y: 1)
+                                            .overlay {
+                                                Circle()
+                                                    .frame(height: 8)
+                                                    .foregroundStyle(Color.greenStatus)
+                                                    .offset(y: 1)
+                                            }
+                                    }
+                                    
+                                    
+                                }
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
                 
             }
             .padding(.top, 15)
+            .padding(.bottom, 10)
+            .onTapGesture {
+                showCarpoolView.toggle()
+            }
+            .sheet(isPresented: $showCarpoolView) {
+                Carpool()
+            }
             
             HStack {
                 Spacer()
@@ -209,7 +249,7 @@ struct UpcomingEventDetail: View {
             }
             .padding(.top, 18)
             .padding(.horizontal, 6)
-
+            
             
             Spacer()
         }
@@ -224,5 +264,5 @@ struct UpcomingEventDetail: View {
 
 
 #Preview {
-    UpcomingEventDetail()    
+    UpcomingEventDetail()
 }

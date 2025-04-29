@@ -16,6 +16,7 @@ struct Participants: View {
     @State var height: CGFloat = 40
     @State var circleHeight: CGFloat = 50
     @State var showQuantityJoined: Bool = true
+    @State var QuantityJoined: Int = 10
     
     var body: some View {
         HStack(spacing: spacing) {
@@ -71,7 +72,7 @@ struct Participants: View {
                             .foregroundStyle(.darkPurple)
                             .frame(height: height)
                             .overlay {
-                                Text("+8k")
+                                Text("+\(QuantityJoined)")
                                     .font(.caption)
                                     .foregroundStyle(.white)
                                     .fontWeight(.bold)

@@ -11,7 +11,6 @@ struct ContentView: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
     
-    
     var body: some View {
         NavigationStack(path: $coordinator.navigationPath) {
             coordinator.build(route: .home)

@@ -64,8 +64,7 @@ struct CalendarView: View {
                     .font(.system(size: 15))
                     .frame(maxWidth: .infinity, minHeight: 45)
                     .foregroundStyle(isSelected ? .dark : (isCurrentMonth ? .primary : .gray))
-                    .background(isSelected ? Color.primary : isCurrentMonth ? .BG : .gray.opacity(0.2))
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .background(isSelected ? .white : (isCurrentMonth ? .BG : .gray.opacity(0.2)))                    .clipShape(RoundedRectangle(cornerRadius: 8))
                     .overlay(todayIndicator)
                     .overlay(eventIndicators(isSelected: isSelected))
                     .onTapGesture {
@@ -88,7 +87,7 @@ struct CalendarView: View {
         func eventIndicators(isSelected: Bool) -> some View {
             HStack(spacing: 3) {
                 ForEach(0..<min(eventsForDay.count, 5), id: \.self) { _ in
-                    Circle()
+                    RoundedRectangle(cornerRadius: 10)
                         .frame(width: 4, height: 4)
                         .padding(.top, 27)
                         .foregroundStyle(isSelected ? .darkPurple : .darkPurple)
@@ -148,7 +147,6 @@ struct CalendarView: View {
         }
     }
 
-    
     func weekdayCell(for index: Int) -> some View {
         Text(viewModel.weekdays[index])
             .font(.system(size: 15))
@@ -168,86 +166,89 @@ struct EventItem: View {
     let item: EventB
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(.dark)
+        RoundedRectangle(cornerRadius: 10)
+            .fill(.clear)
             .frame(width: .infinity, height: 100)
             .overlay {
-                HStack {
-                    Image("pizzaria")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 70, height: 70)
-                        .clipShape(CustomRoundedShape(topLeftRadius: 20, topRightRadius: 20, bottomLeftRadius: 20, bottomRightRadius: 20))
-                    
-                    VStack(alignment: .leading) {
-                        Text(item.title)
-                            .font(.caption)
-                            .fontWeight(.semibold)
+                HStack(alignment: .lastTextBaseline) {
+                    HStack {
+                        Image("pizzaria")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 70, height: 70)
+                            .clipShape(CustomRoundedShape(topLeftRadius: 10, topRightRadius: 10, bottomLeftRadius: 10, bottomRightRadius: 10))
                         
-                        HStack(alignment: .lastTextBaseline, spacing: 5) {
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 10)
-                                .foregroundStyle(.yellow)
-                                .fontWeight(.bold)
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 10)
-                                .foregroundStyle(.yellow)
-                                .fontWeight(.bold)
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 10)
-                                .foregroundStyle(.yellow)
-                                .fontWeight(.bold)
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 10)
-                                .foregroundStyle(.yellow)
-                                .fontWeight(.bold)
-                            Image(systemName: "star")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 10)
-                                .foregroundStyle(.yellow)
-                                .fontWeight(.bold)
-                        
+                        VStack(alignment: .leading) {
+                            Text(item.title)
+                                .font(.caption)
+                                .fontWeight(.semibold)
                             
-                            HStack {
-                                Text("4.8")
-                                    .fontWeight(.medium)
-                                    .font(.caption)
+                            HStack(alignment: .lastTextBaseline, spacing: 5) {
+                                Image(systemName: "star.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 10)
+                                    .foregroundStyle(.yellow)
+                                    .fontWeight(.bold)
+                                Image(systemName: "star.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 10)
+                                    .foregroundStyle(.yellow)
+                                    .fontWeight(.bold)
+                                Image(systemName: "star.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 10)
+                                    .foregroundStyle(.yellow)
+                                    .fontWeight(.bold)
+                                Image(systemName: "star.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 10)
+                                    .foregroundStyle(.yellow)
+                                    .fontWeight(.bold)
+                                Image(systemName: "star")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 10)
+                                    .foregroundStyle(.yellow)
+                                    .fontWeight(.bold)
+                                
+                                
+                                HStack {
+                                    Text("4.8")
+                                        .fontWeight(.medium)
+                                        .font(.caption)
+                                }
                             }
+                            
+                            Text("April 28 2025")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.gray)
                         }
-                        
-                        Text("April 28 2025")
-                            .font(.caption)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.gray)
                     }
-                    
                     
                     Spacer()
                     
-                    HStack {
-                        Text("Join")
-                            .font(.subheadline)
-                            .foregroundStyle(.darkPurple)
-                            .fontWeight(.bold)
-                        
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 10)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.darkPurple)
-                    }
+                    
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(.BG)
+                        .frame(width: 70, height: 30)
+                        .overlay {
+                            HStack {
+                                Text("Join")
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                            }
+                        }
+                    
                 }
-                .padding(.horizontal)
+                .padding(.horizontal,10)
             }
     }
 }
