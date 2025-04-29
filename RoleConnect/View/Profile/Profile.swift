@@ -12,8 +12,10 @@ struct Profile: View {
     @EnvironmentObject private var coordinator: AppCoordinator
     
     var body: some View {
-        
-        header
+        VStack {
+            HeaderCoordinators()
+        }
+        .padding(.horizontal, 30)
         
         GeometryReader { geo in
             
@@ -40,42 +42,6 @@ struct Profile: View {
             .navigationBarBackButtonHidden()
             .padding(.horizontal, 30)
             .ignoresSafeArea(edges: .bottom)
-        }
-    }
-    
-    @ViewBuilder
-    private var header: some View {
-        HStack(spacing: 15) {
-            Circle()
-                .fill(.darkPurple)
-                .frame(height: 45)
-                .overlay {
-                    Image(systemName: "arrow.left")
-                        .foregroundStyle(.white)
-                }
-            
-            Spacer()
-            
-            HStack {
-                Text("Rolê")
-                
-                Circle()
-                    .fill(.darkPurple)
-                    .frame(height: 12)
-                
-                Text("Connect")
-            }
-            .fontWeight(.heavy)
-            
-            
-        }
-        .padding(.top, 10)
-        .padding(.bottom, 15)
-        .padding(.horizontal, 30)
-        .onTapGesture {
-            withAnimation(.smooth) {
-                coordinator.pop()
-            }
         }
     }
     

@@ -39,12 +39,9 @@ struct CalendarView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: 7), spacing: 2) {
                 ForEach(days, id: \.self) { date in
                     DayCell(
-                        date: date,
-                        viewModel: viewModel,
-                        eventsForDay: EventB.events.filter {
-                            viewModel.calendar.isDate($0.date, inSameDayAs: date)
-                        }
-                    )
+                            date: date,
+                            viewModel: viewModel
+                        )
                 }
             }
         }
@@ -52,41 +49,37 @@ struct CalendarView: View {
     
     struct DayCell: View {
         let date: Date
-        let viewModel: EventCalendarViewModel
-        let eventsForDay: [EventB]
+        @ObservedObject var viewModel: EventCalendarViewModel
         
         var body: some View {
             let isCurrentMonth = viewModel.calendar.isDate(date, equalTo: viewModel.displayedMonth, toGranularity: .month)
             let isSelected = viewModel.selectedDate != nil && viewModel.calendar.isDate(viewModel.selectedDate!, inSameDayAs: date)
+            let isToday = viewModel.calendar.isDateInToday(date)
+            let eventsForDay = EventB.events.filter { viewModel.calendar.isDate($0.date, inSameDayAs: date) }
             
             VStack(spacing: 4) {
                 Text("\(viewModel.calendar.component(.day, from: date))")
                     .font(.system(size: 15))
                     .frame(maxWidth: .infinity, minHeight: 45)
-                    .foregroundStyle(isSelected ? .dark : (isCurrentMonth ? .primary : .gray))
-                    .background(isSelected ? .white : (isCurrentMonth ? .BG : .gray.opacity(0.2)))                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .overlay(todayIndicator)
-                    .overlay(eventIndicators(isSelected: isSelected))
-                    .onTapGesture {
-                        if let selected = viewModel.selectedDate, viewModel.calendar.isDate(selected, inSameDayAs: date) {
-                            viewModel.selectedDate = nil
-                        } else {
-                            viewModel.selectedDate = date
-                        }
-                    }
+                    .foregroundColor(isSelected ? .dark : (isCurrentMonth ? .primary : .gray))
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(isSelected ? Color.white : (isCurrentMonth ? Color.BG : Color.gray.opacity(0.2)))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(isToday ? Color.primary : Color.clear, lineWidth: 1)
+                    )
+                    .overlay(eventIndicators(events: eventsForDay, isSelected: isSelected))
+            }
+            .onTapGesture {
+                viewModel.selectDate(date)
             }
         }
         
-        var todayIndicator: some View {
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(lineWidth: 1)
-                .foregroundStyle(Calendar.current.isDateInToday(date) ? Color.primary : .clear)
-                .padding(1)
-        }
-        
-        func eventIndicators(isSelected: Bool) -> some View {
+        func eventIndicators(events: [EventB], isSelected: Bool) -> some View {
             HStack(spacing: 3) {
-                ForEach(0..<min(eventsForDay.count, 5), id: \.self) { _ in
+                ForEach(0..<min(events.count, 5), id: \.self) { _ in
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 4, height: 4)
                         .padding(.top, 27)
@@ -127,8 +120,7 @@ struct CalendarView: View {
     
     var EventsList: some View {
         VStack {
-            let visibleEvents = viewModel.selectedDate != nil ? EventB.events.filter {
-                viewModel.calendar.isDate($0.date, inSameDayAs: viewModel.selectedDate!) } : EventB.events
+            let visibleEvents = viewModel.eventsForSelectedDate()
             
             if visibleEvents.isEmpty {
                 Text("No Events for this day.")
@@ -143,7 +135,6 @@ struct CalendarView: View {
                     }
                 }
             }
-            
         }
     }
 

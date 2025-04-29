@@ -15,11 +15,11 @@ struct Carpool: View {
         VStack {
             VStack(spacing: 20) {
                 
-                header
+                HeaderCoordinators()
                 
                 searchbar
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     
                     VStack(spacing: 40) {
                         carItem
@@ -37,38 +37,6 @@ struct Carpool: View {
         .navigationBarBackButtonHidden()
     }
     
-    @ViewBuilder
-    private var header: some View {
-        HStack(spacing: 15) {
-            Circle()
-                .fill(.dark)
-                .frame(height: 45)
-                .overlay {
-                    Image(systemName: "arrow.left")
-                        .foregroundStyle(.white)
-                }
-            
-            Spacer()
-            
-            HStack {
-                Text("Rolê")
-                
-                Circle()
-                    .fill(.gray)
-                    .frame(height: 7)
-                
-                Text("Connect")
-            }
-            .fontWeight(.heavy)
-            
-            
-        }
-        .padding(.bottom, 15)
-        .onTapGesture {
-            coordinator.pop()
-        }
-    }
-    
     var searchbar: some View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
@@ -82,7 +50,7 @@ struct Carpool: View {
                             .frame(height: 17)
                             .foregroundStyle(.gray)
                         
-                        CustomTextField(text: .constant(""), placeholder: "Search By: Car, name, events..", placeholderColor: .gray,keyboardType: .default, tintColor: .gray, foregroundColor: .gray, fontWeight: .regular, autocorrectionDisabled: false)
+                        CustomTextField(text: .constant(""), placeholder: "Car, name, events, restaurants...", placeholderColor: .gray,keyboardType: .default, tintColor: .gray, foregroundColor: .gray, fontWeight: .regular, autocorrectionDisabled: false)
                         
                         
                         Image(systemName: "line.3.horizontal.decrease.circle")
@@ -117,7 +85,7 @@ struct Carpool: View {
                                 .overlay {
                                     HStack {
                                         VStack(alignment: .leading) {
-                                            Text("Jeep Renegade")
+                                            Text("Jeep Compass")
                                                 .fontWeight(.medium)
                                             
                                             HStack {
@@ -148,7 +116,7 @@ struct Carpool: View {
                                             .background(.black)
                                             .frame(width: 70, height: 35)
                                             .overlay {
-                                                Text("Join")
+                                                Text("Choose")
                                                     .font(.callout)
                                                     .foregroundStyle(.dark)
                                                     .fontWeight(.semibold)

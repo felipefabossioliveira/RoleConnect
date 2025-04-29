@@ -13,8 +13,11 @@ class EventCalendarViewModel: ObservableObject {
     @Published var selectedDate: Date? = nil
     
     let calendar = Calendar.current
+    let currentDate: Date
+
     
     init(initialDate: Date = Date()) {
+        self.currentDate = Calendar.current.startOfDay(for: initialDate)
         self.displayedMonth = initialDate
     }
     
@@ -37,6 +40,12 @@ class EventCalendarViewModel: ObservableObject {
     func changeMonth(by value: Int) {
         displayedMonth = calendar.date(byAdding: .month, value: value, to: displayedMonth) ?? displayedMonth
     }
+    func eventsForSelectedDate() -> [EventB] {
+        let dateToUse = selectedDate ?? currentDate
+        return EventB.events.filter {
+            calendar.isDate($0.date, inSameDayAs: dateToUse)
+        }
+    }
     
     func generateMonthGrid() -> [Date] {
         guard let monthInterval = calendar.dateInterval(of: .month, for: displayedMonth),
@@ -46,5 +55,13 @@ class EventCalendarViewModel: ObservableObject {
 
         return stride(from: firstWeek.start, to: lastWeek.end, by: 86400).map { $0 }
     }
+    
+    func selectDate(_ date: Date) {
+            if let selected = selectedDate, calendar.isDate(selected, inSameDayAs: date) {
+                selectedDate = nil
+            } else {
+                selectedDate = date
+            }
+        }
 }
   
