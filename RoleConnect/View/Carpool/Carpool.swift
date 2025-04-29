@@ -8,42 +8,71 @@
 import SwiftUI
 
 struct Carpool: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
         VStack {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.dark)
-                .overlay(alignment: .topLeading) {
-                    VStack(spacing: 35) {
-                        header
+            VStack(spacing: 20) {
+                
+                header
+                
+                searchbar
+                
+                ScrollView {
+                    
+                    VStack(spacing: 40) {
+                        carItem
                         
-                        ScrollView {
-                            carItem
-                        }
+                        carItem
+                        
+                        carItem
+                        
                     }
-                    .padding(.top, 35)
-                    .padding(.horizontal, 25)
                 }
+                
+            }
+            .padding()
         }
+        .navigationBarBackButtonHidden()
     }
     
-    var header: some View {
-        VStack(spacing: 30) {
-            HStack {
-                HStack {
-                    Text("Rides Available")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                    
+    @ViewBuilder
+    private var header: some View {
+        HStack(spacing: 15) {
+            Circle()
+                .fill(.dark)
+                .frame(height: 45)
+                .overlay {
+                    Image(systemName: "arrow.left")
+                        .foregroundStyle(.white)
                 }
-            }
             
-            searchbar
+            Spacer()
+            
+            HStack {
+                Text("Rolê")
+                
+                Circle()
+                    .fill(.gray)
+                    .frame(height: 7)
+                
+                Text("Connect")
+            }
+            .fontWeight(.heavy)
+            
+            
+        }
+        .padding(.bottom, 15)
+        .onTapGesture {
+                coordinator.pop()
         }
     }
     
     var searchbar: some View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
+                .fill(.clear)
                 .frame(height: 50)
                 .overlay {
                     HStack {
@@ -76,8 +105,7 @@ struct Carpool: View {
                         Text("Bruno Morgan")
                             .fontWeight(.bold)
                             .foregroundStyle(.dark)
-                            .padding(.top)
-                            .padding(.horizontal, 10)
+                            .padding()
                         
                         Spacer()
                         VStack {

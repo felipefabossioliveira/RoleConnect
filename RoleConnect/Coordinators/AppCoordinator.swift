@@ -17,15 +17,25 @@ class AppCoordinator: ObservableObject {
         case detail
         case profile
         case wallet
-        //        case viewMoreUpComing
+        case carPool
     }
     
     func push(_ route: Route) {
         navigationPath.append(route)
     }
     
+    func canPop() -> Bool {
+        return !navigationPath.isEmpty
+    }
+    
     func pop() {
-        navigationPath.removeLast()
+        if canPop() {
+            navigationPath.removeLast()
+        }
+    }
+    
+    func popToRoot() {
+        push(.home)
     }
     
     @ViewBuilder
@@ -41,8 +51,8 @@ class AppCoordinator: ObservableObject {
             
         case .wallet: Wallet()
             
-            //        case .viewMoreUpComing: ViewMoreEvents()
-            
+        case .carPool: Carpool()
+                        
         }
     }
 }

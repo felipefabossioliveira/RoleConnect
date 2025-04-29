@@ -234,10 +234,7 @@ struct UpcomingEventDetail: View {
             .padding(.top, 15)
             .padding(.bottom, 10)
             .onTapGesture {
-                showCarpoolView.toggle()
-            }
-            .sheet(isPresented: $showCarpoolView) {
-                Carpool()
+                coordinator.push(.carPool)
             }
             
             HStack {
