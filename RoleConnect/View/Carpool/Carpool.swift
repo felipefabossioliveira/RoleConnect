@@ -65,7 +65,7 @@ struct Carpool: View {
         }
         .padding(.bottom, 15)
         .onTapGesture {
-                coordinator.pop()
+            coordinator.pop()
         }
     }
     
@@ -79,6 +79,7 @@ struct Carpool: View {
                         Image(systemName: "magnifyingglass")
                             .resizable()
                             .scaledToFit()
+                            .frame(height: 17)
                             .foregroundStyle(.gray)
                         
                         CustomTextField(text: .constant(""), placeholder: "Search By: Car, name, events..", placeholderColor: .gray,keyboardType: .default, tintColor: .gray, foregroundColor: .gray, fontWeight: .regular, autocorrectionDisabled: false)
@@ -87,9 +88,10 @@ struct Carpool: View {
                         Image(systemName: "line.3.horizontal.decrease.circle")
                             .resizable()
                             .scaledToFit()
+                            .frame(height: 20)
                             .foregroundStyle(.gray)
                     }
-                    .padding()
+//                    .padding()
                 }
         }
     }
