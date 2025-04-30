@@ -184,65 +184,15 @@ struct UpcomingEventDetail: View {
                     .padding(.horizontal)
                 }
             
-            VStack(alignment: .leading, spacing: 12) {
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.clear)
-                    .stroke(.gray.opacity(0.4), lineWidth: 1)
-                    .frame(height: 90)
-                    .overlay(alignment: .leading) {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Text("Carpool Now")
-                                            .font(.title3)
-                                            .fontWeight(.semibold)
-                                    }
-                                    
-                                    HStack {
-                                        Text("3 cars available")
-                                            .foregroundStyle(.gray)
-                                            .fontWeight(.medium)
-                                        
-                                        Circle()
-                                            .frame(height: 10)
-                                            .foregroundStyle(.white)
-                                            .offset(y: 1)
-                                            .overlay {
-                                                Circle()
-                                                    .frame(height: 8)
-                                                    .foregroundStyle(Color.greenStatus)
-                                                    .offset(y: 1)
-                                            }
-                                    }
-                                    
-                                    
-                                }
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
-                
-            }
-            .padding(.top, 15)
-            .padding(.bottom, 10)
-            .onTapGesture {
-                coordinator.push(.carPool)
-            }
+            
+            Spacer()
             
             HStack {
-                Spacer()
+//                Spacer()
                 
                 SlideToJoin(config: config) {}
                 
-                Spacer()
+//                Spacer()
             }
             .padding(.top, 18)
             .padding(.horizontal, 6)

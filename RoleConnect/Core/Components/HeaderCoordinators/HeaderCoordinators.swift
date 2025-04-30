@@ -11,6 +11,8 @@ struct HeaderCoordinators: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
     
+    @State var headerTitle: String = ""
+    
     var body: some View {
         HStack(spacing: 15) {
             Circle()
@@ -23,17 +25,17 @@ struct HeaderCoordinators: View {
             
             Spacer()
             
-            HStack {
-                Text("Rolê")
-                
-                Circle()
-                    .fill(.gray)
-                    .frame(height: 7)
-                
-                Text("Connect")
-            }
-            .fontWeight(.heavy)
+            Text(headerTitle)
+                .foregroundStyle(.white)
+                .fontWeight(.bold)
             
+            Spacer()
+            
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 20)
+                .foregroundStyle(.redlogo)
             
         }
         .padding(.bottom, 15)
