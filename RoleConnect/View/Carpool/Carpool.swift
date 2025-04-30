@@ -15,7 +15,7 @@ struct Carpool: View {
         VStack {
             VStack(spacing: 20) {
                 
-                HeaderCoordinators()
+                HeaderCoordinators(headerTitle: "Rides Available")
                 
                 searchbar
                 

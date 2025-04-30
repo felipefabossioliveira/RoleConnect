@@ -11,7 +11,6 @@ struct UpcomingEventDetail: View {
     
     @EnvironmentObject private var coordinator: AppCoordinator
     
-    @State private var showCarpoolView: Bool = false
     
     let config = SlideToJoin.Config(
         idleText: "Swipe to Join",
@@ -29,7 +28,7 @@ struct UpcomingEventDetail: View {
             VStack {
                 
                 Spacer()
-                
+        
                 EventInformations
                 
             }
@@ -141,6 +140,9 @@ struct UpcomingEventDetail: View {
             }
             .font(.caption)
             
+            // Rating Review
+            
+            
             RoundedRectangle(cornerRadius: 10)
                 .fill(.clear)
                 .stroke(.gray.opacity(0.4), lineWidth: 1)
@@ -153,7 +155,7 @@ struct UpcomingEventDetail: View {
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
-                            Participants(showJoin: false, height: 30, circleHeight: 35, QuantityJoined:10)                        }
+                            Participants(showJoin: false, height: 30, circleHeight: 35)                        }
                         .padding(.top, 20)
                         
                         Spacer()
@@ -184,19 +186,30 @@ struct UpcomingEventDetail: View {
                     .padding(.horizontal)
                 }
             
-            
-            Spacer()
+            VStack(alignment: .leading, spacing: 12) {
+                
+                Text("About Event")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                
+                Text("After many years, we're finally coming back to South East Asia! Your love and support for our band since day 1 has never gone unnoticed and we can't wait to see all of your beautiful faces again.")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(.gray)
+                
+            }
+            .padding(.top, 15)
             
             HStack {
-//                Spacer()
+                Spacer()
                 
                 SlideToJoin(config: config) {}
                 
-//                Spacer()
+                Spacer()
             }
             .padding(.top, 18)
             .padding(.horizontal, 6)
-            
+
             
             Spacer()
         }
@@ -211,5 +224,5 @@ struct UpcomingEventDetail: View {
 
 
 #Preview {
-    UpcomingEventDetail()
+    UpcomingEventDetail()    
 }
