@@ -18,6 +18,7 @@ class AppCoordinator: ObservableObject {
         case profile
         case wallet
         case carPool
+        case socialLogin
     }
     
     func push(_ route: Route) {
@@ -52,7 +53,9 @@ class AppCoordinator: ObservableObject {
         case .wallet: Wallet()
             
         case .carPool: Carpool()
-                        
+            
+        case .socialLogin: SocialLoginView()
+            
         }
     }
 }

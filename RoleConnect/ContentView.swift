@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack(path: $coordinator.navigationPath) {
-            coordinator.build(route: .home)
+            coordinator.build(route: .socialLogin)
                 .navigationDestination(for: AppCoordinator.Route.self) { route in
                     coordinator.build(route: route)
                 }

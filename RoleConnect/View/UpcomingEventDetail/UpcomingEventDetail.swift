@@ -28,7 +28,7 @@ struct UpcomingEventDetail: View {
             VStack {
                 
                 Spacer()
-        
+                
                 EventInformations
                 
             }
@@ -209,7 +209,7 @@ struct UpcomingEventDetail: View {
             }
             .padding(.top, 18)
             .padding(.horizontal, 6)
-
+            
             
             Spacer()
         }
@@ -224,5 +224,5 @@ struct UpcomingEventDetail: View {
 
 
 #Preview {
-    UpcomingEventDetail()    
+    UpcomingEventDetail()
 }

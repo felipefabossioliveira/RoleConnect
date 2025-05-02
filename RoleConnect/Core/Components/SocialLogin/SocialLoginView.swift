@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SocialLoginView: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    
     var body: some View {
         
         VStack {
@@ -161,6 +164,9 @@ extension SocialLoginView {
                     }
                 }
                 .cornerRadius(15)
+                .onTapGesture {
+                    coordinator.push(.home)
+                }
         }
     }
     

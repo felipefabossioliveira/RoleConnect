@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-@main
-struct RoleConnectApp: App {
+@main struct RoleConnectApp: App {
     
     @StateObject private var coordinator = AppCoordinator()
     @StateObject private var networkMonitor = NetworkMonitor()

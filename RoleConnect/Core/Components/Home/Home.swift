@@ -67,6 +67,7 @@ struct Home: View {
                 .animation(.easeInOut, value: isMenuOpen)
         }
         .background(Color.black)
+        .navigationBarBackButtonHidden()
         .sheet(isPresented: .constant(!(isConnected ?? true))){
             withAnimation(.smooth) {
                 NetworkMonitorView()

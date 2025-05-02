@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct NewEventButtonView: View {
+    
+    @EnvironmentObject private var coordinator: AppCoordinator
+    @State var createEvent: Bool = false
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 10)
             .fill(.white)
@@ -19,6 +23,12 @@ struct NewEventButtonView: View {
                     .frame(height: 20)
                     .fontWeight(.medium)
                     .foregroundStyle(.greyish.opacity(0.7))
+            }
+            .onTapGesture {
+                createEvent.toggle()
+            }
+            .sheet(isPresented: $createEvent) {
+                CreateEvent()
             }
     }
 }
