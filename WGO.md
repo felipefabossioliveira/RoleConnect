@@ -2,9 +2,6 @@
 
 ## 1. Introdução: Por que o Rolê Connect?
 
-**Pergunta inicial:**
-Quantas vezes você já enfrentou dificuldades para organizar ou participar de eventos corporativos?
-
 **Problema:**
 - A organização de eventos internos é demorada e fragmentada.
 - Falta de ferramentas centralizadas para gerenciar participantes, despesas e logística.
@@ -77,7 +74,8 @@ Uma equipe ágil, movida pela inovação, dedicada a transformar ideias em solu�
 - Incentivar os funcionários a testarem o app e fornecerem feedback.
 
 *Colaboração:*
-- Gerentes e líderes podem ajudar a identificar oportunidades para eventos que engajem mais os times.
+- Gerentes e líderes podem ajudar e
+- a identificar oportunidades para eventos que engajem mais os times.
 
 ## 6. Conclusão
 
