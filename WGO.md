@@ -1,94 +1,28 @@
-# Apresentação do Rolê Connect
+# Resumo da Apresentação do Rolê Connect
 
-## 1. Introdução: Por que o Rolê Connect?
+**Introdução:**
+O Rolê Connect surge para resolver a organização demorada e fragmentada de eventos internos, oferecendo uma ferramenta centralizada para gerenciar participantes, despesas e logística.
 
-**Problema:**
-- A organização de eventos internos é demorada e fragmentada.
-- Falta de ferramentas centralizadas para gerenciar participantes, despesas e logística.
+**O Que é?**
+É um aplicativo corporativo que simplifica a criação e gestão de eventos internos, com funcionalidades para funcionários e gerentes, como gerenciamento de orçamento, caronas e relatórios de feedback.
 
-**Solução:**
-- O Rolê Connect centraliza a criação, participação e gestão de eventos.
-- Automatiza processos e promove engajamento entre funcionários e gerentes.
+**Benefícios:**
+- **Para Funcionários:** Facilita a organização de eventos e melhora conexões sociais.
+- **Para Gerentes:** Oferece controle financeiro e relatórios estratégicos.
+- **Para a Empresa:** Fortalece a cultura organizacional e automatiza processos administrativos.
 
-## 2. O Que é o Rolê Connect?
+**Equipe e Desenvolvimento:**
+Desenvolvido por uma equipe ágil, o projeto está em fase de criação do MVP, com entrega de funcionalidades essenciais. O aplicativo é compatível com iOS e Android, oferecendo uma interface intuitiva.
 
-**Definição:**
-Um aplicativo corporativo para facilitar a organização de eventos internos.
+**Próximos Passos:**
+Atualmente, o MVP está em desenvolvimento e testes internos estão previstos. O lançamento será gradual, começando por um grupo pequeno de usuários.
 
-**Principais Funcionalidades:**
+**Conclusão:**
+O Rolê Connect é uma ferramenta estratégica que promove a cultura corporativa e conecta pessoas. Estamos animados e contamos com o apoio de todos para o sucesso do app!
 
-*Funcionários:*
-- Criação de eventos (happy hours, esportes, jantares).
-- Gerenciamento de orçamento individual.
-- Sistema de caronas e galeria de fotos.
-- Feedback anônimo e enquetes pós-evento.
-
-*Gerentes:*
-- Dashboard com métricas financeiras e de engajamento.
-- Exportação de relatórios (CSV, Excel).
-- Gestão de feedbacks e tendências de eventos.
-
-## 3. Benefícios do Rolê Connect
-
-**Para os Funcionários:**
-- Simplifica a organização de eventos.
-- Incentiva a colaboração e conexões sociais.
-- Melhor gerenciamento de budget e caronas.
-
-**Para os Gerentes:**
-- Controle financeiro eficiente.
-- Relatórios estratégicos para tomadas de decisão.
-- Feedback centralizado para melhorias.
-
-**Para a Empresa:**
-- Fortalece a cultura organizacional.
-- Aumenta o engajamento e a satisfação dos funcionários.
-- Automatiza processos administrativos.
-
-## 4. Nossa Equipe e Desenvolvimento
-
-**Equipe Ghostwalker's:**
-Uma equipe ágil, movida pela inovação, dedicada a transformar ideias em soluções digitais.
-
-**Processo de Desenvolvimento:**
-- Dividido em sprints semanais para entregas incrementais.
-- Foco no MVP para validar funcionalidades essenciais:
-  - Login, Dashboard, Criação de Eventos e Gerenciamento de Budget.
-
-**Tecnologia:**
-- Compatível com iOS e Android.
-- Interface intuitiva e de fácil uso.
-
-## 5. Próximos Passos
-
-**Roadmap:**
-- Fase Atual: Desenvolvimento do MVP.
-- Próxima Fase: Testes internos com pequenos grupos de usuários.
-- Lançamento Gradual:
-  - Fase beta para grupos menores.
-  - Expansão para toda a empresa após validação.
-
-**Como a Empresa Pode Ajudar:**
-
-*Engajamento:*
-- Incentivar os funcionários a testarem o app e fornecerem feedback.
-
-*Colaboração:*
-- Gerentes e líderes podem ajudar e
-- a identificar oportunidades para eventos que engajem mais os times.
-
-## 6. Conclusão
-
-**Resumo:**
-O Rolê Connect é mais do que um app; é uma ferramenta estratégica para fortalecer a cultura corporativa, automatizar processos e conectar pessoas.
-
-**Encerramento:**
-Estamos animados para compartilhar esse projeto com vocês. Contamos com sua participação e feedback para fazer do Rolê Connect um sucesso.
-
-## Pontos-Chave para Falar
-
-- O problema que o app resolve.
-- As principais funcionalidades e benefícios para diferentes públicos.
-- O impacto estratégico do Rolê Connect para a empresa.
-- A dedicação da equipe Ghostwalker's e o roadmap para lançamento.
-- Incentivar participação e feedback da empresa.
+**Pontos-Chave:**
+- Problema que o app resolve.
+- Funcionalidades e benefícios.
+- Impacto estratégico para a empresa.
+- Dedicação da equipe e roadmap de lançamento.
+- Incentivar participação e feedback.
