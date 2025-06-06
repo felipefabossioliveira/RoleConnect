@@ -237,16 +237,16 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - Relatórios agregados para organizadores, mantendo o anonimato individual
 - 
 
-## 24. Dashboard de Gerência (MVPZÃO)
+## 24. Dashboard de Gerência (MVPZÃO WEB)
 📌 **Objetivo:** Fornecer uma visão geral abrangente para a equipe de gerência sobre o uso do aplicativo e o engajamento dos funcionários em eventos. Tendo a possibilidade de exportar para CSV / Excel wathever.
 
 🔹 **Componentes:**
 
 ### Visão Geral Financeira
-- **Gasto Total Mensal**: Gráfico mostrando gastos totais por mês
-- **Comparação de Orçamento**: Gastos reais vs. orçamento planejado
-- **Gasto Médio por Evento**: Análise de custos por tipo de evento
-- **Utilização do Budget Individual**: Porcentagem média de utilização do orçamento mensal por funcionário
+- **Gasto Total Mensal**: Gráfico mostrando gastos totais por mês (MVP)
+- **Comparação de Orçamento**: Gastos reais vs. orçamento planejado (MVP)
+- **Gasto Médio por Evento**: Análise de custos por tipo de evento (MVP)
+- **Utilização do Budget Individual**: Porcentagem média de utilização do orçamento mensal por funcionário (MVP)
 
 ### Métricas de Participação
 - **Total de Eventos**: Número de eventos realizados por mês/trimestre
@@ -270,9 +270,9 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - **Tempo Médio de Uso**: Duração média das sessões no aplicativo
 
 ### Relatórios Personalizáveis
-- **Filtros por Data**: Capacidade de visualizar dados em diferentes períodos
-- **Filtros por Departamento**: Análise segmentada por departamentos específicos
-- **Exportação de Dados**: Opção para exportar relatórios em diferentes formatos (PDF, Excel)
+- **Filtros por Data**: Capacidade de visualizar dados em diferentes períodos (MVP)
+- **Filtros por Departamento (Growth Unit)**: Análise segmentada por departamentos específicos (MVP)
+- **Exportação de Dados**: Opção para exportar relatórios em diferentes formatos (CSV, PDF, PNG, JPEG) (MVP) 
 
 ### Alertas e Notificações
 - **Alertas de Orçamento**: Notificações quando o gasto se aproxima ou excede o limite
