@@ -243,10 +243,9 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 🔹 **Componentes:**
 
 ### Visão Geral Financeira
-- **Gasto Total Mensal**: Gráfico mostrando gastos totais por mês (MVP)
-- **Comparação de Orçamento**: Gastos reais vs. orçamento planejado (MVP)
-- **Gasto Médio por Evento**: Análise de custos por tipo de evento (MVP)
-- **Utilização do Budget Individual**: Porcentagem média de utilização do orçamento mensal por funcionário (MVP)
+- **Gasto Total Mensal**: Gráfico mostrando gastos totais por mês (MVP) (Gráfico de Linha)
+- **Comparação de Orçamento**: Gastos reais vs. orçamento planejado (MVP) (Gráfico de Barras)
+- **Utilização do Budget Individual**: Porcentagem média de utilização do orçamento mensal por funcionário (MVP) (Tabela)
 
 ### Métricas de Participação
 - **Total de Eventos**: Número de eventos realizados por mês/trimestre
@@ -270,9 +269,9 @@ Embora sua permanência em cada projeto seja tão breve quanto um holograma de R
 - **Tempo Médio de Uso**: Duração média das sessões no aplicativo
 
 ### Relatórios Personalizáveis
-- **Filtros por Data**: Capacidade de visualizar dados em diferentes períodos (MVP)
-- **Filtros por Departamento (Growth Unit)**: Análise segmentada por departamentos específicos (MVP)
-- **Exportação de Dados**: Opção para exportar relatórios em diferentes formatos (CSV, PDF, PNG, JPEG) (MVP) 
+- **Filtros por Data**: Capacidade de visualizar dados em diferentes períodos (MVP)(Filtro por Mês)
+- **Filtros por Departamento (Growth Unit)**: Análise segmentada por departamentos específicos.
+- **Exportação de Dados**: Opção para exportar relatórios em diferentes formatos (CSV) (MVP) 
 
 ### Alertas e Notificações
 - **Alertas de Orçamento**: Notificações quando o gasto se aproxima ou excede o limite
